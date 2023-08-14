@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PraRoz</title>
+    <style>
+        body {
+            background-image: url(bg.jpg);
+            /* background-position: center; */
+            background-size: 1500px;
+            background-repeat: no-repeat;
+        }
+
+        .left {
+            display: inline-block;
+            position: absolute;
+            left: 50px;
+            top: 0px;
+            color: white;
+            font-size: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .mid {
+            display: block;
+            margin: 0px 0px 0px 300px;
+            width: 800px;
+        }
+
+        .navbar {
+            display: inline-block;
+        }
+
+        .navbar li {
+            list-style: none;
+            display: inline-block;
+        }
+
+        .navbar li a {
+            font-size: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding: 25px;
+            color: white;
+            text-decoration: none;
+            margin: 0%;
+        }
+
+        .right {
+            display: inline-block;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            padding: 0px 0px 0px 0px;
+            /* margin: 0px; */
+        }
+
+        .right input {
+            background-color: transparent;
+            color: white;
+            border-color: white;
+            margin: 0px;
+        }
+
+        .right ::placeholder {
+            color: white;
+        }
+
+        .btn2 {
+            background-color: black;
+            color: white;
+            padding: 4px 12px 4px 12px;
+            border-style: none;
+            margin: 0px;
+        }
+
+        .container {
+            color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            width: 600px;
+            margin-left: 120px;
+            margin-top: 250px;
+        }
+
+        .edit {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container button {
+            color: white;
+            background-color: black;
+            padding: 4px 12px 4px 12px;
+            border-style: none;
+        }
+
+        .container1 {
+            position: absolute;
+            right: 150px;
+            top: 250px;
+            width: 300px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .container1 h3 {
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            margin: 20px 20px 20px 20px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .form-group input {
+            background-color: transparent;
+            color: white;
+            width: 220px;
+            padding: 10px;
+            margin: 5px 25px 5px 25px;
+            border-style: none;
+            border-bottom-style: solid;
+            border-color: white;
+            /* text-align: center; */
+        }
+
+        .form-group ::placeholder {
+            color: white;
+        }
+
+        .btn {
+            background-color: white;
+            color: black;
+            text-align: center;
+            margin: 20px 25px 20px 25px;
+            padding: 5px;
+            width: 250px;
+        }
+
+        .signup {
+            margin: 25px 0px 25px 0px;
+            text-align: center;
+        }
+
+        #p1 {
+            padding: 0px 0px 0px 0px;
+            margin: 0px;
+        }
+
+        #p2 {
+            padding: 0px 0px 0px 0px;
+            margin: 0px;
+        }
+
+        .signup a {
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="left">
+            <h3>PraRoz</h3>
+        </div>
+        <div class="mid">
+            <ul class="navbar">
+                <li> <a href="">Home</a> </li>
+                <li> <a href="">About</a> </li>
+                <li> <a href="">Service</a> </li>
+                <li> <a href="">Design</a> </li>
+                <li> <a href="">Contact</a> </li>
+            </ul>
+        </div>
+        <div class="right">
+            <input type="search" placeholder="Type to Search">
+            <button class="btn2">Search</button>
+        </div>
+    </header>
+    <div class="container">
+        <h2 class="edit">Web Design &</h2>
+        <h1 class="edit">Development</h1>
+        <h2 class="edit">Course</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem natus, quae dolorem enim rerum quia odit
+            placeat doloremque nostrum voluptates architecto ratione. Amet, ipsam quos?</p>
+        <button>Join Us</button>
+    </div>
+    <div class="container1">
+        <h3>Login Here</h3>
+        <form action="nobackend.php">
+            <div class="form-group">
+                <input type="text" placeholder="Enter Email Here">
+            </div>
+
+            <div class="form-group">
+                <input type="text" placeholder="Enter Password Here">
+            </div>
+
+            <div>
+                <Button class="btn">Login</Button>
+            </div>
+
+        </form>
+        <div class="signup">
+            <p id="p1">Don't have an account?</p>
+            <p id="p2"><a href="">Sign up</a> here</p>
+        </div>
+    </div>
+</body>
+
+</html>
