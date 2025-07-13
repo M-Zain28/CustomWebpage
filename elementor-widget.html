@@ -1,0 +1,454 @@
+<!-- WordPress Elementor HTML Widget - 3D Futuristic Hero Section -->
+<div id="futuristic-hero-widget" style="position: relative; width: 100%; height: 80vh; min-height: 500px; overflow: hidden; margin: 0; padding: 0;">
+    <canvas id="hero-canvas-widget" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></canvas>
+    
+    <!-- Scan line effect -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #e30c14, transparent); animation: scanWidget 3s linear infinite; z-index: 2;"></div>
+    
+    <!-- Hero overlay content -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; pointer-events: none; padding: 20px;">
+        <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; color: #e30c14; text-shadow: 0 0 20px #e30c14, 0 0 40px #e30c14, 0 0 60px #e30c14; margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase; animation: glowWidget 2s ease-in-out infinite alternate; max-width: 90%; line-height: 1.2; font-family: Arial, sans-serif;">
+            Empowering Innovation, Driving Digital Growth
+        </h1>
+        <p style="font-size: clamp(0.9rem, 2vw, 1.2rem); color: #ffffff; margin-bottom: 3rem; opacity: 0.8; max-width: 600px; line-height: 1.6; font-family: Arial, sans-serif;">
+            Experience the future of technology with our cutting-edge AI solutions
+        </p>
+        <button onclick="window.location.href='#solutions'" style="padding: 15px 40px; background: linear-gradient(45deg, #e30c14, #a8040d); color: white; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: bold; cursor: pointer; pointer-events: auto; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 0 20px rgba(227, 12, 20, 0.3); font-family: Arial, sans-serif;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 0 30px rgba(227, 12, 20, 0.6), 0 5px 15px rgba(227, 12, 20, 0.3)'; this.style.background='linear-gradient(45deg, #e50914, #e30c14)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 0 20px rgba(227, 12, 20, 0.3)'; this.style.background='linear-gradient(45deg, #e30c14, #a8040d)'">
+            Explore Solutions
+        </button>
+    </div>
+    
+    <!-- Loading indicator -->
+    <div id="loading-widget" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 4; opacity: 1; transition: opacity 0.5s ease;">
+        <div style="width: 40px; height: 40px; border: 3px solid #333; border-top: 3px solid #e30c14; border-radius: 50%; animation: spinWidget 1s linear infinite;"></div>
+    </div>
+</div>
+
+<style>
+@keyframes glowWidget {
+    from { text-shadow: 0 0 20px #e30c14, 0 0 40px #e30c14, 0 0 60px #e30c14; }
+    to { text-shadow: 0 0 30px #e30c14, 0 0 60px #e30c14, 0 0 90px #e30c14; }
+}
+
+@keyframes scanWidget {
+    0% { top: 0; opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+@keyframes spinWidget {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// Elementor Widget Three.js Scene
+(function() {
+    'use strict';
+    
+    class ElementorHeroScene {
+        constructor() {
+            this.scene = null;
+            this.camera = null;
+            this.renderer = null;
+            this.robot = null;
+            this.particles = null;
+            this.quantumLines = [];
+            this.mouse = { x: 0, y: 0 };
+            this.targetRotation = { x: 0, y: 0 };
+            this.currentRotation = { x: 0, y: 0 };
+            this.lights = [];
+            this.circuitParticles = [];
+            this.container = document.getElementById('futuristic-hero-widget');
+            
+            if (!this.container) return;
+            
+            this.init();
+            this.createRobot();
+            this.createParticles();
+            this.createQuantumLines();
+            this.createFloatingCircuits();
+            this.addEventListeners();
+            this.animate();
+            
+            // Hide loading
+            setTimeout(() => {
+                const loading = document.getElementById('loading-widget');
+                if (loading) {
+                    loading.style.opacity = '0';
+                    setTimeout(() => loading.style.display = 'none', 500);
+                }
+            }, 1000);
+        }
+        
+        init() {
+            const canvas = document.getElementById('hero-canvas-widget');
+            if (!canvas) return;
+            
+            const rect = this.container.getBoundingClientRect();
+            
+            this.scene = new THREE.Scene();
+            this.scene.background = new THREE.Color(0x000000);
+            this.scene.fog = new THREE.Fog(0x000000, 10, 50);
+            
+            this.camera = new THREE.PerspectiveCamera(75, rect.width / rect.height, 0.1, 1000);
+            this.camera.position.set(0, 2, 8);
+            
+            this.renderer = new THREE.WebGLRenderer({ 
+                canvas: canvas,
+                antialias: true,
+                alpha: true
+            });
+            this.renderer.setSize(rect.width, rect.height);
+            this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            this.renderer.shadowMap.enabled = true;
+            this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            
+            this.setupLighting();
+        }
+        
+        setupLighting() {
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.3);
+            this.scene.add(ambientLight);
+            
+            const spotlight = new THREE.SpotLight(0xe30c14, 1, 30, Math.PI / 6, 0.1, 2);
+            spotlight.position.set(0, 10, 5);
+            spotlight.castShadow = true;
+            this.scene.add(spotlight);
+            
+            const fillLight = new THREE.DirectionalLight(0x444444, 0.5);
+            fillLight.position.set(-5, 5, 5);
+            this.scene.add(fillLight);
+        }
+        
+        createRobot() {
+            this.robot = new THREE.Group();
+            
+            const bodyMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x2a2a2a,
+                shininess: 100,
+                specular: 0x444444
+            });
+            
+            const glowMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0xe30c14,
+                emissive: 0xe30c14,
+                emissiveIntensity: 0.3
+            });
+            
+            const accentMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0xa8040d,
+                emissive: 0xa8040d,
+                emissiveIntensity: 0.2
+            });
+            
+            // Head
+            const headGeometry = new THREE.BoxGeometry(1.5, 1.5, 1.2);
+            const head = new THREE.Mesh(headGeometry, bodyMaterial);
+            head.position.y = 3;
+            head.castShadow = true;
+            this.robot.add(head);
+            
+            // Eyes
+            const eyeGeometry = new THREE.SphereGeometry(0.15, 8, 8);
+            const leftEye = new THREE.Mesh(eyeGeometry, glowMaterial);
+            leftEye.position.set(-0.3, 3.2, 0.6);
+            const rightEye = new THREE.Mesh(eyeGeometry, glowMaterial);
+            rightEye.position.set(0.3, 3.2, 0.6);
+            this.robot.add(leftEye);
+            this.robot.add(rightEye);
+            
+            // Torso
+            const torsoGeometry = new THREE.CylinderGeometry(0.8, 1.2, 2.5, 8);
+            const torso = new THREE.Mesh(torsoGeometry, bodyMaterial);
+            torso.position.y = 1;
+            torso.castShadow = true;
+            this.robot.add(torso);
+            
+            // Chest accent
+            const chestGeometry = new THREE.RingGeometry(0.2, 0.4, 8);
+            const chest = new THREE.Mesh(chestGeometry, accentMaterial);
+            chest.position.set(0, 1.5, 0.8);
+            this.robot.add(chest);
+            
+            // Arms
+            const armGeometry = new THREE.CylinderGeometry(0.2, 0.25, 1.8, 8);
+            const leftArm = new THREE.Mesh(armGeometry, bodyMaterial);
+            leftArm.position.set(-1.2, 1, 0);
+            leftArm.castShadow = true;
+            const rightArm = new THREE.Mesh(armGeometry, bodyMaterial);
+            rightArm.position.set(1.2, 1, 0);
+            rightArm.castShadow = true;
+            this.robot.add(leftArm);
+            this.robot.add(rightArm);
+            
+            // Legs
+            const legGeometry = new THREE.CylinderGeometry(0.25, 0.3, 2, 8);
+            const leftLeg = new THREE.Mesh(legGeometry, bodyMaterial);
+            leftLeg.position.set(-0.5, -1.5, 0);
+            leftLeg.castShadow = true;
+            const rightLeg = new THREE.Mesh(legGeometry, bodyMaterial);
+            rightLeg.position.set(0.5, -1.5, 0);
+            rightLeg.castShadow = true;
+            this.robot.add(leftLeg);
+            this.robot.add(rightLeg);
+            
+            this.robotHead = head;
+            this.createBlinkingLights();
+            this.robot.position.y = -1;
+            this.scene.add(this.robot);
+        }
+        
+        createBlinkingLights() {
+            const lightMaterial = new THREE.MeshBasicMaterial({ 
+                color: 0xe30c14,
+                transparent: true,
+                opacity: 0.8
+            });
+            
+            for (let i = 0; i < 6; i++) {
+                const lightGeometry = new THREE.SphereGeometry(0.05, 4, 4);
+                const light = new THREE.Mesh(lightGeometry, lightMaterial);
+                
+                const angle = (i / 6) * Math.PI * 2;
+                const radius = 2.5;
+                light.position.set(
+                    Math.cos(angle) * radius,
+                    Math.sin(angle * 0.5) * 2 + 1,
+                    Math.sin(angle) * radius * 0.5
+                );
+                
+                light.userData = { 
+                    originalOpacity: 0.8,
+                    blinkSpeed: 0.02 + Math.random() * 0.03,
+                    phase: Math.random() * Math.PI * 2
+                };
+                
+                this.lights.push(light);
+                this.scene.add(light);
+            }
+        }
+        
+        createParticles() {
+            const particleCount = 100;
+            const particleGeometry = new THREE.BufferGeometry();
+            const positions = [];
+            const colors = [];
+            
+            for (let i = 0; i < particleCount; i++) {
+                positions.push(
+                    (Math.random() - 0.5) * 40,
+                    (Math.random() - 0.5) * 40,
+                    (Math.random() - 0.5) * 40
+                );
+                
+                const color = new THREE.Color();
+                color.setHSL(0.0, 0.8, 0.3 + Math.random() * 0.4);
+                colors.push(color.r, color.g, color.b);
+            }
+            
+            particleGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            particleGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+            
+            const particleMaterial = new THREE.PointsMaterial({
+                size: 0.1,
+                transparent: true,
+                opacity: 0.6,
+                vertexColors: true
+            });
+            
+            this.particles = new THREE.Points(particleGeometry, particleMaterial);
+            this.scene.add(this.particles);
+        }
+        
+        createQuantumLines() {
+            for (let i = 0; i < 10; i++) {
+                const points = [];
+                const startPoint = new THREE.Vector3(
+                    (Math.random() - 0.5) * 20,
+                    (Math.random() - 0.5) * 20,
+                    (Math.random() - 0.5) * 20
+                );
+                
+                for (let j = 0; j < 3; j++) {
+                    const point = startPoint.clone().add(
+                        new THREE.Vector3(
+                            (Math.random() - 0.5) * 8,
+                            (Math.random() - 0.5) * 8,
+                            (Math.random() - 0.5) * 8
+                        )
+                    );
+                    points.push(point);
+                }
+                
+                const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+                const lineMaterial = new THREE.LineBasicMaterial({ 
+                    color: 0xe30c14,
+                    transparent: true,
+                    opacity: 0.3
+                });
+                
+                const line = new THREE.Line(lineGeometry, lineMaterial);
+                line.userData = { 
+                    originalOpacity: 0.3,
+                    pulseSpeed: 0.01 + Math.random() * 0.02,
+                    phase: Math.random() * Math.PI * 2
+                };
+                
+                this.quantumLines.push(line);
+                this.scene.add(line);
+            }
+        }
+        
+        createFloatingCircuits() {
+            const circuitCount = 15;
+            
+            for (let i = 0; i < circuitCount; i++) {
+                const circuit = new THREE.Group();
+                
+                const boardGeometry = new THREE.PlaneGeometry(0.3, 0.2);
+                const boardMaterial = new THREE.MeshPhongMaterial({ 
+                    color: 0x1a1a1a,
+                    transparent: true,
+                    opacity: 0.5
+                });
+                const board = new THREE.Mesh(boardGeometry, boardMaterial);
+                circuit.add(board);
+                
+                const traceGeometry = new THREE.PlaneGeometry(0.2, 0.01);
+                const traceMaterial = new THREE.MeshBasicMaterial({ 
+                    color: 0xa8040d,
+                    transparent: true,
+                    opacity: 0.6
+                });
+                
+                for (let j = 0; j < 2; j++) {
+                    const trace = new THREE.Mesh(traceGeometry, traceMaterial);
+                    trace.position.y = (j - 0.5) * 0.08;
+                    trace.position.z = 0.001;
+                    circuit.add(trace);
+                }
+                
+                circuit.position.set(
+                    (Math.random() - 0.5) * 15,
+                    (Math.random() - 0.5) * 15,
+                    (Math.random() - 0.5) * 15
+                );
+                
+                circuit.userData = {
+                    rotationSpeed: {
+                        x: (Math.random() - 0.5) * 0.01,
+                        y: (Math.random() - 0.5) * 0.01,
+                        z: (Math.random() - 0.5) * 0.01
+                    },
+                    floatSpeed: 0.005 + Math.random() * 0.01,
+                    floatAmplitude: 0.5 + Math.random() * 0.5,
+                    phase: Math.random() * Math.PI * 2
+                };
+                
+                this.circuitParticles.push(circuit);
+                this.scene.add(circuit);
+            }
+        }
+        
+        addEventListeners() {
+            const handleMouseMove = (event) => {
+                const rect = this.container.getBoundingClientRect();
+                this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+                this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+                
+                this.targetRotation.y = this.mouse.x * 0.3;
+                this.targetRotation.x = this.mouse.y * 0.2;
+            };
+            
+            this.container.addEventListener('mousemove', handleMouseMove);
+            
+            const handleResize = () => {
+                const rect = this.container.getBoundingClientRect();
+                this.camera.aspect = rect.width / rect.height;
+                this.camera.updateProjectionMatrix();
+                this.renderer.setSize(rect.width, rect.height);
+            };
+            
+            window.addEventListener('resize', handleResize);
+            
+            // Intersection Observer for performance
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.isVisible = true;
+                    } else {
+                        this.isVisible = false;
+                    }
+                });
+            });
+            observer.observe(this.container);
+        }
+        
+        animate() {
+            requestAnimationFrame(() => this.animate());
+            
+            if (!this.isVisible) return;
+            
+            const time = Date.now() * 0.001;
+            
+            // Robot head tracking
+            if (this.robotHead) {
+                this.currentRotation.x += (this.targetRotation.x - this.currentRotation.x) * 0.05;
+                this.currentRotation.y += (this.targetRotation.y - this.currentRotation.y) * 0.05;
+                
+                this.robotHead.rotation.x = this.currentRotation.x;
+                this.robotHead.rotation.y = this.currentRotation.y;
+            }
+            
+            // Robot animations
+            if (this.robot) {
+                this.robot.rotation.y += 0.001;
+                this.robot.position.y = -1 + Math.sin(time * 0.5) * 0.05;
+            }
+            
+            // Particle rotation
+            if (this.particles) {
+                this.particles.rotation.y += 0.0005;
+            }
+            
+            // Blinking lights
+            this.lights.forEach(light => {
+                const userData = light.userData;
+                const opacity = userData.originalOpacity * (0.3 + 0.7 * Math.sin(time * userData.blinkSpeed + userData.phase));
+                light.material.opacity = opacity;
+            });
+            
+            // Quantum lines
+            this.quantumLines.forEach(line => {
+                const userData = line.userData;
+                const opacity = userData.originalOpacity * (0.5 + 0.5 * Math.sin(time * userData.pulseSpeed + userData.phase));
+                line.material.opacity = opacity;
+            });
+            
+            // Floating circuits
+            this.circuitParticles.forEach(circuit => {
+                const userData = circuit.userData;
+                
+                circuit.rotation.x += userData.rotationSpeed.x;
+                circuit.rotation.y += userData.rotationSpeed.y;
+                circuit.rotation.z += userData.rotationSpeed.z;
+                
+                circuit.position.y += Math.sin(time * userData.floatSpeed + userData.phase) * userData.floatAmplitude * 0.01;
+            });
+            
+            this.renderer.render(this.scene, this.camera);
+        }
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            new ElementorHeroScene();
+        });
+    } else {
+        new ElementorHeroScene();
+    }
+})();
+</script>
