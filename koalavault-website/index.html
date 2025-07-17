@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KoalaVault - Your Gateway to Exclusive Opportunities</title>
+    <meta name="description" content="Enter KoalaVault and discover exclusive opportunities. Experience the thrill of high-value rewards and premium entertainment.">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-vault"></i>
+                <span>KoalaVault</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                <li><a href="enter-to-win.html" class="nav-link">Enter to Win</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Moving Banner -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+        </div>
+        <div class="hero-slider">
+            <div class="slide active" data-bg="images/hero-bg-1.jpg">
+                <div class="slide-content">
+                    <h1 class="hero-title">
+                        <span class="gold-text">Unlock</span> Your Fortune
+                    </h1>
+                    <p class="hero-subtitle">Experience the ultimate thrill with exclusive opportunities and premium rewards at KoalaVault</p>
+                    <div class="hero-buttons">
+                        <a href="enter-to-win.html" class="btn btn-primary pulse">Enter to Win</a>
+                        <a href="how-it-works.html" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" data-bg="images/hero-bg-2.jpg">
+                <div class="slide-content">
+                    <h1 class="hero-title">
+                        <span class="gold-text">Premium</span> Experiences Await
+                    </h1>
+                    <p class="hero-subtitle">Join thousands of winners who have discovered the excitement of KoalaVault's exclusive opportunities</p>
+                    <div class="hero-buttons">
+                        <a href="enter-to-win.html" class="btn btn-primary pulse">Start Now</a>
+                        <a href="how-it-works.html" class="btn btn-secondary">Discover How</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" data-bg="images/hero-bg-3.jpg">
+                <div class="slide-content">
+                    <h1 class="hero-title">
+                        <span class="gold-text">Vault</span> of Opportunities
+                    </h1>
+                    <p class="hero-subtitle">Where dreams meet reality - Enter KoalaVault and unlock your path to extraordinary rewards</p>
+                    <div class="hero-buttons">
+                        <a href="enter-to-win.html" class="btn btn-primary pulse">Join Now</a>
+                        <a href="how-it-works.html" class="btn btn-secondary">About Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-nav">
+            <button class="hero-nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="hero-nav-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="hero-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+        </div>
+    </section>
+
+    <!-- Live Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-number" data-target="2847">0</div>
+                    <div class="stat-label">Active Winners</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="stat-number" data-target="1250000">0</div>
+                    <div class="stat-label">Total Rewards ($)</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-time">
+                        <span id="countdown-days">00</span>:
+                        <span id="countdown-hours">00</span>:
+                        <span id="countdown-minutes">00</span>:
+                        <span id="countdown-seconds">00</span>
+                    </div>
+                    <div class="stat-label">Next Big Draw</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-target="15632">0</div>
+                    <div class="stat-label">Active Players</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Why Choose <span class="gold-text">KoalaVault</span>?</h2>
+                <p>Experience the pinnacle of premium entertainment and exclusive opportunities</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Trusted</h3>
+                    <p>Your security is our priority. Every transaction is protected with bank-level encryption and secure payment processing.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Instant Access</h3>
+                    <p>Join instantly and start your journey immediately. No waiting, no delays - your opportunities are just a click away.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Premium Rewards</h3>
+                    <p>Unlock exclusive rewards and experiences that money can't usually buy. Every entry brings you closer to something extraordinary.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our dedicated team is here around the clock to ensure your experience is smooth and enjoyable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opportunities Section -->
+    <section class="opportunities-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Current <span class="gold-text">Opportunities</span></h2>
+                <p>Don't miss out on these exclusive chances to win big</p>
+            </div>
+            <div class="opportunities-slider">
+                <div class="opportunity-card" data-aos="fade-up">
+                    <div class="opportunity-image">
+                        <img src="images/opportunity-1.jpg" alt="Luxury Car Prize">
+                        <div class="opportunity-overlay">
+                            <span class="opportunity-tag">Featured</span>
+                        </div>
+                    </div>
+                    <div class="opportunity-content">
+                        <h3>Luxury Car Collection</h3>
+                        <p>Win your dream car from our exclusive collection of premium vehicles</p>
+                        <div class="opportunity-value">Prize Value: $150,000</div>
+                        <div class="opportunity-time">
+                            <i class="fas fa-clock"></i>
+                            <span>3 days remaining</span>
+                        </div>
+                        <a href="enter-to-win.html" class="btn btn-primary btn-small">Enter Now</a>
+                    </div>
+                </div>
+                <div class="opportunity-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="opportunity-image">
+                        <img src="images/opportunity-2.jpg" alt="Luxury Vacation">
+                        <div class="opportunity-overlay">
+                            <span class="opportunity-tag">Hot</span>
+                        </div>
+                    </div>
+                    <div class="opportunity-content">
+                        <h3>Luxury World Tour</h3>
+                        <p>Experience the world's most exclusive destinations in ultimate luxury</p>
+                        <div class="opportunity-value">Prize Value: $75,000</div>
+                        <div class="opportunity-time">
+                            <i class="fas fa-clock"></i>
+                            <span>1 week remaining</span>
+                        </div>
+                        <a href="enter-to-win.html" class="btn btn-primary btn-small">Enter Now</a>
+                    </div>
+                </div>
+                <div class="opportunity-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="opportunity-image">
+                        <img src="images/opportunity-3.jpg" alt="Cash Prize">
+                        <div class="opportunity-overlay">
+                            <span class="opportunity-tag">New</span>
+                        </div>
+                    </div>
+                    <div class="opportunity-content">
+                        <h3>Cash Jackpot</h3>
+                        <p>Pure cash prize - the ultimate freedom to choose your own adventure</p>
+                        <div class="opportunity-value">Prize Value: $100,000</div>
+                        <div class="opportunity-time">
+                            <i class="fas fa-clock"></i>
+                            <span>5 days remaining</span>
+                        </div>
+                        <a href="enter-to-win.html" class="btn btn-primary btn-small">Enter Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>What Our <span class="gold-text">Winners</span> Say</h2>
+                <p>Real stories from real winners who've experienced the KoalaVault difference</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-content">
+                        <p>"I never believed I could actually win something this big! KoalaVault changed my life completely. The process was smooth, secure, and absolutely thrilling."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="images/testimonial-1.jpg" alt="Sarah M.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah M.</h4>
+                            <span>Luxury Car Winner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-content">
+                        <p>"The vacation I won through KoalaVault was beyond my wildest dreams. Five-star everything, and the experience was absolutely unforgettable. Thank you!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="images/testimonial-2.jpg" alt="Mike R.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Mike R.</h4>
+                            <span>Vacation Winner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-content">
+                        <p>"The customer service at KoalaVault is exceptional. From entry to winning, everything was handled professionally. I'm a customer for life!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="images/testimonial-3.jpg" alt="Jennifer L.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Jennifer L.</h4>
+                            <span>Cash Prize Winner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Ready to <span class="gold-text">Unlock</span> Your Fortune?</h2>
+                <p>Join thousands of winners and discover what's waiting for you in the vault</p>
+                <div class="cta-buttons">
+                    <a href="enter-to-win.html" class="btn btn-primary btn-large pulse">Enter to Win Now</a>
+                    <a href="how-it-works.html" class="btn btn-secondary btn-large">Learn How It Works</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-vault"></i>
+                        <span>KoalaVault</span>
+                    </div>
+                    <p>Your gateway to exclusive opportunities and premium rewards. Experience the thrill of winning with KoalaVault.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="how-it-works.html">How It Works</a></li>
+                            <li><a href="enter-to-win.html">Enter to Win</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Responsible Gaming</h4>
+                        <ul>
+                            <li><a href="#">18+ Only</a></li>
+                            <li><a href="#">Play Responsibly</a></li>
+                            <li><a href="#">Gambling Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KoalaVault. All rights reserved. | 18+ Only | Play Responsibly</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
