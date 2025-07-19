@@ -228,11 +228,20 @@
             box-shadow: 0 6px 20px rgba(0, 107, 179, 0.4);
         }
 
-        .cta-button:active {
+        .cta-button:active,
+        .cta-button:focus {
             background: #004080 !important;
             color: white !important;
             transform: translateY(0);
             box-shadow: 0 2px 10px rgba(0, 107, 179, 0.3);
+            outline: none;
+        }
+
+        .cta-form .cta-button:hover,
+        .cta-form .cta-button:active,
+        .cta-form .cta-button:focus {
+            background: #005494 !important;
+            color: white !important;
         }
 
         .form-note {
