@@ -453,6 +453,18 @@
             to { transform: rotate(360deg); }
         }
 
+        .bundle-bonus {
+            background: linear-gradient(45deg, #FFD700, #FFF700);
+            color: #000000;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
         .bundle-name {
             font-size: 1.8rem;
             font-weight: 800;
@@ -460,17 +472,32 @@
             margin-bottom: 1rem;
         }
 
-        .bundle-price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #FFFFFF;
+        .bundle-pricing {
+            margin-bottom: 1rem;
+        }
+
+        .bundle-price-original {
+            font-size: 1.2rem;
+            color: #888888;
+            text-decoration: line-through;
             margin-bottom: 0.5rem;
         }
 
-        .bundle-entries {
+        .bundle-price-current {
+            font-size: 3rem;
+            font-weight: 800;
             color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        .bundle-billing {
+            color: #CCCCCC;
+            font-size: 0.9rem;
             margin-bottom: 2rem;
-            font-weight: 600;
+            padding: 1rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            border-left: 3px solid #FFD700;
         }
 
         .bundle-features {
@@ -488,6 +515,34 @@
             color: #FFD700;
             margin-right: 0.5rem;
             font-weight: bold;
+        }
+
+        /* Premium Bundle Highlight */
+        .bundle-card.premium {
+            border: 3px solid #FFD700;
+            transform: scale(1.05);
+            position: relative;
+        }
+
+        .bundle-card.premium::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #D72638, #FF4757);
+            color: #FFFFFF;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(215, 38, 56, 0.4);
+        }
+
+        .bundle-card.premium .bundle-bonus {
+            background: linear-gradient(45deg, #D72638, #FF4757);
+            color: #FFFFFF;
         }
 
         /* Trust Section */
@@ -938,42 +993,57 @@
             <h2 class="section-title">Pick Your Prize Bundle</h2>
             <div class="bundle-grid">
                 <div class="bundle-card">
-                    <div class="bundle-name">Silver Bundle</div>
-                    <div class="bundle-price">$15</div>
-                    <div class="bundle-entries">5 Entries</div>
+                    <div class="bundle-bonus">50 bonus entries</div>
+                    <div class="bundle-name">Standard</div>
+                    <div class="bundle-pricing">
+                        <div class="bundle-price-original">$99</div>
+                        <div class="bundle-price-current">$0</div>
+                    </div>
+                    <div class="bundle-billing">$99 Billed Monthly when we reach 3,000 members (cancel anytime)</div>
                     <ul class="bundle-features">
-                        <li>5 chances to win</li>
-                        <li>Instant confirmation</li>
-                        <li>Email notifications</li>
-                        <li>Cancel anytime</li>
+                        <li>Earn 4 FREE ACCUMULATING entries every month</li>
+                        <li>Earn 4,000 ACCUMULATING points every month</li>
+                        <li>Automatic entry into all current and future giveaways</li>
+                        <li>Chance to win $10,000 Every Single Weekday (at 3k members)</li>
+                        <li>Redeem points for luxury experiences like (cars, holiday getaways, yachts + more) at NO EXTRA COST</li>
                     </ul>
-                    <a href="#" class="cta-button">Enter Draw</a>
+                    <a href="#" class="cta-button">SELECT STANDARD</a>
+                </div>
+                
+                <div class="bundle-card premium">
+                    <div class="bundle-bonus">200 bonus entries</div>
+                    <div class="bundle-name">Premium</div>
+                    <div class="bundle-pricing">
+                        <div class="bundle-price-original">$199</div>
+                        <div class="bundle-price-current">$0</div>
+                    </div>
+                    <div class="bundle-billing">$199 Billed Monthly when we reach 3,000 members (cancel anytime)</div>
+                    <ul class="bundle-features">
+                        <li>Earn 12 FREE ACCUMULATING entries every month</li>
+                        <li>Earn 12,000 ACCUMULATING points every month</li>
+                        <li>Automatic entry into all current and future giveaways</li>
+                        <li>Chance to win $10,000 Every Single Weekday (at 3k members)</li>
+                        <li>Redeem points for luxury experiences like (cars, holiday getaways, yachts + more) at NO EXTRA COST</li>
+                    </ul>
+                    <a href="#" class="cta-button">SELECT PREMIUM</a>
                 </div>
                 
                 <div class="bundle-card">
-                    <div class="bundle-name">Gold Bundle</div>
-                    <div class="bundle-price">$30</div>
-                    <div class="bundle-entries">15 Entries + Bonus</div>
+                    <div class="bundle-bonus">500 bonus entries</div>
+                    <div class="bundle-name">Platinum</div>
+                    <div class="bundle-pricing">
+                        <div class="bundle-price-original">$399</div>
+                        <div class="bundle-price-current">$0</div>
+                    </div>
+                    <div class="bundle-billing">$399 Billed Monthly when we reach 3,000 members (cancel anytime)</div>
                     <ul class="bundle-features">
-                        <li>15 chances to win</li>
-                        <li>5 bonus entries</li>
-                        <li>Priority support</li>
-                        <li>Cancel anytime</li>
+                        <li>Earn 40 FREE ACCUMULATING entries every month</li>
+                        <li>Earn 40,000 ACCUMULATING points every month</li>
+                        <li>Automatic entry into all current and future giveaways</li>
+                        <li>Chance to win $10,000 Every Single Weekday (at 3k members)</li>
+                        <li>Redeem points for luxury experiences like (cars, holiday getaways, yachts + more) at NO EXTRA COST</li>
                     </ul>
-                    <a href="#" class="cta-button">Enter Draw</a>
-                </div>
-                
-                <div class="bundle-card">
-                    <div class="bundle-name">Platinum Bundle</div>
-                    <div class="bundle-price">$50</div>
-                    <div class="bundle-entries">30 Entries + VIP Bonus</div>
-                    <ul class="bundle-features">
-                        <li>30 chances to win</li>
-                        <li>10 VIP bonus entries</li>
-                        <li>Exclusive updates</li>
-                        <li>Cancel anytime</li>
-                    </ul>
-                    <a href="#" class="cta-button">Enter Draw</a>
+                    <a href="#" class="cta-button">SELECT PLATINUM</a>
                 </div>
             </div>
             <p style="text-align: center; margin-top: 2rem; color: #FFD700; font-weight: 600;">
