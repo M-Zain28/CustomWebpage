@@ -375,24 +375,41 @@
           gap: 1rem;
         }
 
+        .packages-container {
+          padding: 0 1rem;
+        }
+
+        .payment-container {
+          padding: 0 1rem;
+        }
+
+        .final-cta-container {
+          padding: 0 1rem;
+        }
+
         .packages-section {
-          padding: 4rem 1rem;
+          padding: 4rem 0;
         }
 
         .payment-section {
-          padding: 4rem 1rem;
+          padding: 4rem 0;
         }
 
         .final-cta {
-          padding: 4rem 1rem;
+          padding: 4rem 0;
         }
       }
 
     .packages-section {
-      padding: 6rem 2rem;
+      padding: 6rem 0;
+      background: #000000;
+      width: 100%;
+    }
+
+    .packages-container {
       max-width: 1200px;
       margin: 0 auto;
-      background: #000000;
+      padding: 0 2rem;
     }
 
     .section-title {
@@ -568,10 +585,14 @@
     .payment-section {
       background: #000000;
       margin: 0;
-      padding: 6rem 2rem;
+      padding: 6rem 0;
+      width: 100%;
+    }
+
+    .payment-container {
       max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
 
     .payment-title {
@@ -658,13 +679,17 @@
     .final-cta {
       background: var(--red-gradient);
       margin: 0;
-      padding: 6rem 2rem;
+      padding: 6rem 0;
       text-align: center;
       position: relative;
       overflow: hidden;
+      width: 100%;
+    }
+
+    .final-cta-container {
       max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
 
     .final-cta::before {
@@ -1245,16 +1270,17 @@
   </section>
 
   <section class="packages-section">
-    <h2 class="section-title">Choose Your Membership Plan</h2>
-    <p class="section-subtitle" style="max-width: 800px;">
-      BY PURCHASING A PACKAGE BELOW YOUR NAME WILL INSTANTLY GO INTO EVERY GIVEAWAY<br><br>
-      The sooner you join, the sooner you start earning points toward your dream lifestyle. With each month, you're not just entering a giveaway — you're accumulating valuable points that bring you closer to luxury prizes.
-    </p>
-    <p style="text-align: center; color: var(--muted); margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto;">
-      Join now, choose your plan, and start earning rewards immediately. The more you engage, the faster you can unlock the luxury items you've always dreamed of.
-    </p>
+    <div class="packages-container">
+      <h2 class="section-title">Choose Your Membership Plan</h2>
+      <p class="section-subtitle" style="max-width: 800px;">
+        BY PURCHASING A PACKAGE BELOW YOUR NAME WILL INSTANTLY GO INTO EVERY GIVEAWAY<br><br>
+        The sooner you join, the sooner you start earning points toward your dream lifestyle. With each month, you're not just entering a giveaway — you're accumulating valuable points that bring you closer to luxury prizes.
+      </p>
+      <p style="text-align: center; color: var(--muted); margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto;">
+        Join now, choose your plan, and start earning rewards immediately. The more you engage, the faster you can unlock the luxury items you've always dreamed of.
+      </p>
 
-    <div class="packages-grid">
+      <div class="packages-grid">
       <div class="package-card">
         <div class="bonus-badge">50 bonus entries</div>
         <h3 class="package-title">Standard</h3>
@@ -1308,17 +1334,19 @@
         </ul>
         <button class="package-button" onclick="selectPackage('platinum')">SELECT PLATINUM</button>
       </div>
-    </div>
-    
-    <div style="text-align: center; margin-top: 40px;">
-      <p style="color: var(--gold); font-weight: 600; font-size: 1.1rem;">*Sign up now as an early bird to claim your Bonus Entries!</p>
-      <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">(Valid to Australian residents - T's & C's Apply)</p>
+      </div>
+      
+      <div style="text-align: center; margin-top: 40px;">
+        <p style="color: var(--gold); font-weight: 600; font-size: 1.1rem;">*Sign up now as an early bird to claim your Bonus Entries!</p>
+        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">(Valid to Australian residents - T's & C's Apply)</p>
+      </div>
     </div>
   </section>
 
   <section class="payment-section">
-    <h2 class="payment-title">Secure Payment</h2>
-    <form id="payment-form" action="/process-payment" method="POST">
+    <div class="payment-container">
+      <h2 class="payment-title">Secure Payment</h2>
+      <form id="payment-form" action="/process-payment" method="POST">
       <div class="form-group">
         <label class="form-label">Full Name</label>
         <input type="text" name="name" class="form-input" required>
@@ -1372,15 +1400,17 @@
           <i class="fas fa-flag"></i>
           <span>AU Licensed</span>
         </div>
-      </div>
-    </form>
+              </div>
+      </form>
+    </div>
   </section>
 
   <section class="final-cta">
-    <h2 class="final-cta-title">DON'T MISS OUT</h2>
-    <p class="final-cta-subtitle">Your $100K fortune awaits. Every second counts.</p>
-    
-    <div class="countdown">
+    <div class="final-cta-container">
+      <h2 class="final-cta-title">DON'T MISS OUT</h2>
+      <p class="final-cta-subtitle">Your $100K fortune awaits. Every second counts.</p>
+      
+      <div class="countdown">
       <div class="countdown-item">
         <span class="countdown-number" id="days">07</span>
         <span class="countdown-label">Days</span>
@@ -1397,11 +1427,12 @@
         <span class="countdown-number" id="seconds">30</span>
         <span class="countdown-label">Seconds</span>
       </div>
-    </div>
+      </div>
 
-    <button class="cta-button" onclick="document.querySelector('.packages-section').scrollIntoView()">
-      <i class="fas fa-rocket"></i> ENTER NOW
-    </button>
+      <button class="cta-button" onclick="document.querySelector('.packages-section').scrollIntoView()">
+        <i class="fas fa-rocket"></i> ENTER NOW
+      </button>
+    </div>
   </section>
 
   <!-- Footer -->
