@@ -715,6 +715,7 @@
       margin-bottom: 20px;
       position: relative;
       z-index: 2;
+      color: var(--white);
     }
 
     .final-cta-subtitle {
@@ -722,6 +723,7 @@
       margin-bottom: 40px;
       position: relative;
       z-index: 2;
+      color: var(--white);
     }
 
     .countdown {
@@ -1601,12 +1603,13 @@
       document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Countdown timer - Set target date to 7 days, 23 hours, 45 minutes from now
+    // Set target date for countdown - 7 days, 23 hours, 45 minutes from page load
+    const targetDate = new Date().getTime() + (7 * 24 * 60 * 60 * 1000) + (23 * 60 * 60 * 1000) + (45 * 60 * 1000);
+
+    // Countdown timer function
     function updateCountdown() {
-      // Set target date - 7 days, 23 hours, 45 minutes from current time
       const now = new Date().getTime();
-      const target = now + (7 * 24 * 60 * 60 * 1000) + (23 * 60 * 60 * 1000) + (45 * 60 * 1000);
-      const distance = target - now;
+      const distance = targetDate - now;
 
       // Calculate time units
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -1614,19 +1617,20 @@
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      // Update display
+      // Update display elements
       const daysElement = document.getElementById('days');
       const hoursElement = document.getElementById('hours');
       const minutesElement = document.getElementById('minutes');
       const secondsElement = document.getElementById('seconds');
 
-      if (daysElement) daysElement.textContent = days.toString().padStart(2, '0');
-      if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
-      if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
-      if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+      if (daysElement) daysElement.textContent = Math.max(0, days).toString().padStart(2, '0');
+      if (hoursElement) hoursElement.textContent = Math.max(0, hours).toString().padStart(2, '0');
+      if (minutesElement) minutesElement.textContent = Math.max(0, minutes).toString().padStart(2, '0');
+      if (secondsElement) secondsElement.textContent = Math.max(0, seconds).toString().padStart(2, '0');
 
-      // If countdown reaches zero, show expired message
+      // If countdown reaches zero, stop the timer
       if (distance < 0) {
+        clearInterval(countdownInterval);
         if (daysElement) daysElement.textContent = "00";
         if (hoursElement) hoursElement.textContent = "00";
         if (minutesElement) minutesElement.textContent = "00";
@@ -1634,8 +1638,9 @@
       }
     }
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    // Start the countdown timer
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Run immediately on page load
 
     // Card number formatting
     document.querySelector('input[name="card_number"]').addEventListener('input', function(e) {
