@@ -108,20 +108,22 @@
         /* Hero Section */
         .hero {
             padding: 140px 0 80px;
-            background: white;
+            background-color: #f8fafc;
+            background-image: linear-gradient(rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.9)), url('https://www.devmerce.com/wp-content/uploads/2025/07/6685-scaled.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             position: relative;
             color: #1a1a1a;
         }
 
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
         .hero-content {
-            padding-right: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -138,51 +140,10 @@
 
         .hero p {
             font-size: 1.25rem;
-            color: #64748b;
+            color: #374151;
             margin-bottom: 40px;
             line-height: 1.6;
-        }
-
-        .hero-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            display: block;
-        }
-
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 107, 179, 0.05) 0%, rgba(0, 84, 148, 0.05) 100%);
-            z-index: 1;
-        }
-
-        .hero-decoration {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #006bb3, #005494);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            z-index: 2;
-            box-shadow: 0 8px 30px rgba(0, 107, 179, 0.3);
+            font-weight: 500;
         }
 
         .cta-form {
@@ -817,18 +778,8 @@
                 display: block;
             }
 
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-
-            .hero-content {
-                padding-right: 0;
-                order: 2;
-            }
-
-            .hero-image {
-                order: 1;
+            .hero {
+                background-attachment: scroll;
             }
 
             .final-cta {
@@ -978,45 +929,37 @@
 
     <section class="hero">
         <div class="container">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1>Business funding made simple</h1>
-                    <p>Get the capital you need to grow your business. Fast approval, competitive rates, and flexible terms designed for modern businesses.</p>
-                    
-                    <div class="cta-form">
-                        <form>
-                            <div class="form-group">
-                                <label for="amount">How much do you need?</label>
-                                <select id="amount" required>
-                                    <option value="">Select amount</option>
-                                    <option value="5000-25000">$5,000 - $25,000</option>
-                                    <option value="25000-50000">$25,000 - $50,000</option>
-                                    <option value="50000-100000">$50,000 - $100,000</option>
-                                    <option value="100000+">$100,000+</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="industry">What's your industry?</label>
-                                <select id="industry" required>
-                                    <option value="">Select industry</option>
-                                    <option value="retail">Retail</option>
-                                    <option value="hospitality">Hospitality</option>
-                                    <option value="professional-services">Professional Services</option>
-                                    <option value="manufacturing">Manufacturing</option>
-                                    <option value="technology">Technology</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="cta-button">Check My Options</button>
-                            <p class="form-note">No impact on your credit score • Takes 2 minutes</p>
-                        </form>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="hero-decoration">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <img src="https://www.devmerce.com/wp-content/uploads/2025/07/6685-scaled.jpg" alt="Business Funding Solutions">
+            <div class="hero-content">
+                <h1>Business funding made simple</h1>
+                <p>Get the capital you need to grow your business. Fast approval, competitive rates, and flexible terms designed for modern businesses.</p>
+                
+                <div class="cta-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="amount">How much do you need?</label>
+                            <select id="amount" required>
+                                <option value="">Select amount</option>
+                                <option value="5000-25000">$5,000 - $25,000</option>
+                                <option value="25000-50000">$25,000 - $50,000</option>
+                                <option value="50000-100000">$50,000 - $100,000</option>
+                                <option value="100000+">$100,000+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="industry">What's your industry?</label>
+                            <select id="industry" required>
+                                <option value="">Select industry</option>
+                                <option value="retail">Retail</option>
+                                <option value="hospitality">Hospitality</option>
+                                <option value="professional-services">Professional Services</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="technology">Technology</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="cta-button">Check My Options</button>
+                        <p class="form-note">No impact on your credit score • Takes 2 minutes</p>
+                    </form>
                 </div>
             </div>
         </div>
