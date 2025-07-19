@@ -47,6 +47,40 @@
             50% { transform: translateY(-20px); }
         }
 
+        /* Announcement Bar */
+        .announcement-bar {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(45deg, #D72638, #FF4757);
+            z-index: 999;
+            overflow: hidden;
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 15px rgba(215, 38, 56, 0.4);
+        }
+
+        .announcement-content {
+            display: flex;
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        .announcement-text {
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-right: 4rem;
+            display: inline-block;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
         /* Header */
         header {
             position: fixed;
@@ -254,6 +288,7 @@
             text-align: center;
             background: linear-gradient(135deg, #000000 0%, #1C1C1C 100%);
             z-index: 2;
+            margin-top: 60px;
         }
 
         .hero-content {
@@ -803,6 +838,18 @@
                 padding: 0.5rem;
             }
 
+            .announcement-bar {
+                top: 70px;
+            }
+
+            .announcement-text {
+                font-size: 1rem;
+            }
+
+            .hero {
+                margin-top: 50px;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -1088,6 +1135,18 @@
             </ul>
         </div>
     </header>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-content">
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
