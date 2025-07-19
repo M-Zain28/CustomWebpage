@@ -577,9 +577,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
-            align-items: start;
-            padding: 0 1rem;
+            margin-top: 4rem;
+            padding-top: 1rem;
         }
 
         .bundle-card {
@@ -591,7 +590,6 @@
             position: relative;
             transition: all 0.4s ease;
             overflow: hidden;
-            margin: 2rem 0;
         }
 
         .bundle-card:hover {
@@ -685,26 +683,22 @@
             border: 3px solid #FFD700;
             position: relative;
             background: linear-gradient(135deg, #2A2A2A, #1C1C1C);
-            margin: 2rem 1rem;
-            z-index: 2;
         }
 
         .bundle-card.premium::after {
             content: 'MOST POPULAR';
             position: absolute;
-            top: -12px;
+            top: -10px;
             left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(45deg, #D72638, #FF4757);
             color: #FFFFFF;
-            padding: 0.4rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(215, 38, 56, 0.4);
-            z-index: 3;
-            white-space: nowrap;
+            box-shadow: 0 2px 10px rgba(215, 38, 56, 0.4);
         }
 
         .bundle-card.premium .bundle-bonus {
