@@ -111,20 +111,29 @@
             background-color: #f8fafc;
             background-image: url('https://www.devmerce.com/wp-content/uploads/2025/07/6685-scaled.jpg');
             background-size: cover;
-            background-position: right center;
-            background-attachment: fixed;
+            background-position: center;
             background-repeat: no-repeat;
             position: relative;
             color: #1a1a1a;
             min-height: 100vh;
-            display: flex;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
             align-items: center;
+            height: 100%;
+            min-height: calc(100vh - 220px);
         }
 
         .hero-content {
-            max-width: 500px;
-            margin: 0;
             text-align: left;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-form-section {
             position: relative;
             z-index: 2;
         }
@@ -150,8 +159,8 @@
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            margin-top: 40px;
-            max-width: 500px;
+            width: 100%;
+            max-width: 450px;
         }
 
         .form-group {
@@ -776,16 +785,24 @@
             }
 
             .hero {
-                background-attachment: scroll;
                 background-position: center;
                 min-height: auto;
                 padding: 120px 0 60px;
-                text-align: center;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                min-height: auto;
             }
 
             .hero-content {
                 text-align: center;
-                margin: 0 auto;
+                order: 1;
+            }
+
+            .hero-form-section {
+                order: 2;
             }
 
             .final-cta {
@@ -935,37 +952,40 @@
 
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Business funding made simple</h1>
-                <p>Get the capital you need to grow your business. Fast approval, competitive rates, and flexible terms designed for modern businesses.</p>
-                
-                <div class="cta-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="amount">How much do you need?</label>
-                            <select id="amount" required>
-                                <option value="">Select amount</option>
-                                <option value="5000-25000">$5,000 - $25,000</option>
-                                <option value="25000-50000">$25,000 - $50,000</option>
-                                <option value="50000-100000">$50,000 - $100,000</option>
-                                <option value="100000+">$100,000+</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="industry">What's your industry?</label>
-                            <select id="industry" required>
-                                <option value="">Select industry</option>
-                                <option value="retail">Retail</option>
-                                <option value="hospitality">Hospitality</option>
-                                <option value="professional-services">Professional Services</option>
-                                <option value="manufacturing">Manufacturing</option>
-                                <option value="technology">Technology</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="cta-button">Check My Options</button>
-                        <p class="form-note">No impact on your credit score • Takes 2 minutes</p>
-                    </form>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>Business funding made simple</h1>
+                    <p>Get the capital you need to grow your business. Fast approval, competitive rates, and flexible terms designed for modern businesses.</p>
+                </div>
+                <div class="hero-form-section">
+                    <div class="cta-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="amount">How much do you need?</label>
+                                <select id="amount" required>
+                                    <option value="">Select amount</option>
+                                    <option value="5000-25000">$5,000 - $25,000</option>
+                                    <option value="25000-50000">$25,000 - $50,000</option>
+                                    <option value="50000-100000">$50,000 - $100,000</option>
+                                    <option value="100000+">$100,000+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="industry">What's your industry?</label>
+                                <select id="industry" required>
+                                    <option value="">Select industry</option>
+                                    <option value="retail">Retail</option>
+                                    <option value="hospitality">Hospitality</option>
+                                    <option value="professional-services">Professional Services</option>
+                                    <option value="manufacturing">Manufacturing</option>
+                                    <option value="technology">Technology</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="cta-button">Check My Options</button>
+                            <p class="form-note">No impact on your credit score • Takes 2 minutes</p>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
