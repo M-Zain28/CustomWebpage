@@ -815,6 +815,23 @@
             color: #FFD700;
         }
 
+        .faq-question:active,
+        .faq-question:focus {
+            background: rgba(255, 215, 0, 0.15);
+            color: #FFD700;
+            outline: none;
+        }
+
+        .faq-item.active {
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+        }
+
+        .faq-item.active .faq-question {
+            background: rgba(255, 215, 0, 0.1);
+            color: #FFD700;
+        }
+
         .faq-answer {
             padding: 0 1.5rem 1.5rem;
             color: #CCCCCC;
@@ -1544,15 +1561,22 @@
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const answer = button.nextElementSibling;
+                const faqItem = button.closest('.faq-item');
                 const isOpen = answer.style.display === 'block';
                 
-                // Close all other FAQ items
+                // Close all other FAQ items and remove active class
                 document.querySelectorAll('.faq-answer').forEach(ans => {
                     ans.style.display = 'none';
                 });
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
                 
                 // Toggle current item
-                answer.style.display = isOpen ? 'none' : 'block';
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                    faqItem.classList.add('active');
+                }
             });
         });
 
