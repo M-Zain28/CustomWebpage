@@ -70,9 +70,7 @@
         .nav-right {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 2rem;
-            height: 100%;
         }
 
         .logo {
@@ -98,18 +96,19 @@
             padding: 0;
         }
 
-        .nav-links li {
-            display: flex;
-            align-items: center;
-        }
-
         .nav-links a {
             color: #FFFFFF;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
-            padding: 0.8rem 0;
-            line-height: 1;
+            padding: 0.8rem 1rem;
+            border-radius: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            min-height: 44px;
+            box-sizing: border-box;
         }
 
         .nav-links a:hover {
@@ -131,7 +130,10 @@
             white-space: nowrap;
             display: inline-flex;
             align-items: center;
-            line-height: 1;
+            justify-content: center;
+            height: auto;
+            min-height: 44px;
+            box-sizing: border-box;
         }
 
         .header-cta-button:hover {
