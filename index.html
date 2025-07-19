@@ -67,6 +67,12 @@
             padding: 0 2rem;
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
         .logo {
             font-size: 1.8rem;
             font-weight: 800;
@@ -527,11 +533,7 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .header-cta-button {
+            .nav-right {
                 display: none;
             }
 
@@ -778,12 +780,14 @@
                 <span class="koala-emoji">🐨</span>
                 KoalaVault
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#bundles">Current Giveaways</a></li>
-            </ul>
-            <a href="#bundles" class="header-cta-button">Enter Now</a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#bundles">Current Giveaways</a></li>
+                </ul>
+                <a href="#bundles" class="header-cta-button">Enter Now</a>
+            </div>
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
         </nav>
         <div class="mobile-nav" id="mobile-nav">
