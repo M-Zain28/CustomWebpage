@@ -98,6 +98,26 @@
             color: #FFD700;
         }
 
+        /* Header CTA Button */
+        .header-cta-button {
+            background: linear-gradient(45deg, #D72638, #FF4757);
+            color: #FFFFFF;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(215, 38, 56, 0.3);
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .header-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(215, 38, 56, 0.5);
+        }
+
         /* Mobile Menu */
         .mobile-menu-toggle {
             display: none;
@@ -145,6 +165,17 @@
 
         .mobile-nav ul li a:hover {
             color: #FFD700;
+        }
+
+        .mobile-nav-cta {
+            background: linear-gradient(45deg, #D72638, #FF4757) !important;
+            color: #FFFFFF !important;
+            padding: 0.8rem 1.5rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            border-radius: 25px !important;
+            margin: 0.5rem 1rem !important;
+            display: inline-block !important;
         }
 
         /* Hero Section */
@@ -500,6 +531,10 @@
                 display: none;
             }
 
+            .header-cta-button {
+                display: none;
+            }
+
             .mobile-menu-toggle {
                 display: block;
             }
@@ -745,18 +780,18 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#bundles">Bundles</a></li>
-                <li><a href="#winners">Winners</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#bundles">Current Giveaways</a></li>
             </ul>
+            <a href="#bundles" class="header-cta-button">Enter Now</a>
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
         </nav>
         <div class="mobile-nav" id="mobile-nav">
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#bundles">Bundles</a></li>
-                <li><a href="#winners">Winners</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#bundles">Current Giveaways</a></li>
+                <li><a href="#bundles" class="mobile-nav-cta">Enter Now</a></li>
             </ul>
         </div>
     </header>
