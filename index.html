@@ -41,6 +41,7 @@
       position: relative;
       text-align: center;
       overflow: hidden;
+      padding-top: 80px;
     }
 
     .hero-background {
@@ -897,10 +898,264 @@
             text-align: left;
         }
     }
+
+    /* Header */
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        z-index: 1000;
+        padding: 0;
+    }
+
+    nav {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        height: 80px;
+        box-sizing: border-box;
+    }
+
+    .logo {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #FFD700;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+        transform: scale(1.05);
+    }
+
+    .logo .koala-emoji {
+        font-size: 2.2rem;
+        animation: float 4s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+    }
+
+    .nav-center {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50px;
+        padding: 0.5rem 2rem;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        position: relative;
+        padding: 0.8rem 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(45deg, #FFD700, #FFF700);
+        transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #FFD700;
+        transform: translateY(-2px);
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .header-cta-button {
+        background: linear-gradient(135deg, #D72638, #FF4757, #D72638);
+        background-size: 200% 200%;
+        color: #FFFFFF;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 50px;
+        box-shadow: 0 8px 25px rgba(215, 38, 56, 0.4);
+        transition: all 0.4s ease;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+        letter-spacing: 0.5px;
+    }
+
+    .header-cta-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.6s ease;
+    }
+
+    .header-cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(215, 38, 56, 0.6);
+        background-position: 100% 0;
+    }
+
+    .header-cta-button:hover::before {
+        left: 100%;
+    }
+
+    .header-cta-button:active {
+        transform: translateY(-1px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: #FFFFFF;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 999;
+        padding: 1rem 0;
+    }
+
+    .mobile-nav.active {
+        display: block;
+    }
+
+    .mobile-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-nav ul li {
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    .mobile-nav ul li a {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .mobile-nav ul li a:hover {
+        color: #FFD700;
+    }
+
+    .mobile-nav-cta {
+        background: linear-gradient(45deg, #D72638, #FF4757) !important;
+        color: #FFFFFF !important;
+        padding: 0.8rem 1.5rem !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        border-radius: 25px !important;
+        margin: 0.5rem 1rem !important;
+        display: inline-block !important;
+    }
+
+    /* Header Mobile Responsive */
+    @media (max-width: 768px) {
+        nav {
+            padding: 0.8rem 1.5rem;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+        }
+
+        .logo .koala-emoji {
+            font-size: 2rem;
+        }
+
+        .nav-center {
+            display: none;
+        }
+
+        .header-cta-button {
+            display: none;
+        }
+
+        .mobile-menu-toggle {
+            display: block;
+            font-size: 1.8rem;
+            padding: 0.5rem;
+        }
+    }
     </style>
-</head>
-<body>
-  <section class="hero-section">
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">
+                <span class="koala-emoji">🐨</span>
+                KoalaVault
+            </a>
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#bundles">Current Giveaways</a></li>
+                </ul>
+            </div>
+            <a href="#bundles" class="header-cta-button">Enter Now</a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+        </nav>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#bundles">Current Giveaways</a></li>
+                <li><a href="#bundles" class="mobile-nav-cta">Enter Now</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero-section">
     <div class="hero-background">
       <div class="hero-particles"></div>
       <div class="hero-glow"></div>
@@ -1217,6 +1472,27 @@
   </footer>
 
   <script>
+    // Mobile menu toggle
+    function setupMobileMenu() {
+        const toggle = document.getElementById('mobile-menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        toggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+            });
+        });
+    }
+
+    // Initialize mobile menu
+    setupMobileMenu();
+
     function selectPackage(packageType) {
       const select = document.getElementById('package-select');
       select.value = packageType;
