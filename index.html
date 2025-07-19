@@ -79,6 +79,52 @@
             color: #006bb3;
         }
 
+        .mobile-nav-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 1px solid #e5e7eb;
+            z-index: 999;
+        }
+
+        .mobile-nav-menu.active {
+            display: block;
+        }
+
+        .mobile-nav-menu ul {
+            list-style: none;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        .mobile-nav-menu li {
+            padding: 0;
+        }
+
+        .mobile-nav-menu li a {
+            display: block;
+            padding: 15px 20px;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            border-bottom: 1px solid #f3f4f6;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-nav-menu li a:hover {
+            background-color: #f8fafc;
+            color: #006bb3;
+        }
+
+        .mobile-nav-menu li:last-child a {
+            border-bottom: none;
+        }
+
         .header-cta {
             background: #006bb3;
             color: white;
@@ -989,6 +1035,14 @@
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
+            <div class="mobile-nav-menu">
+                <ul>
+                    <li><a href="#loans">Loans</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#apply">Apply Now</a></li>
+                </ul>
+            </div>
         </div>
     </header>
 
@@ -1284,10 +1338,18 @@
 
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
+        const mobileNavMenu = document.querySelector('.mobile-nav-menu');
 
         mobileMenuBtn.addEventListener('click', function() {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            mobileNavMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on links
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNavMenu.classList.remove('active');
+            });
         });
 
         // Animated counter for stats
