@@ -577,8 +577,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 4rem;
-            padding-top: 1rem;
+            margin-top: 3rem;
         }
 
         .bundle-card {
@@ -685,20 +684,19 @@
             background: linear-gradient(135deg, #2A2A2A, #1C1C1C);
         }
 
-        .bundle-card.premium::after {
+        .bundle-card.premium::before {
             content: 'MOST POPULAR';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+            display: block;
             background: linear-gradient(45deg, #D72638, #FF4757);
             color: #FFFFFF;
-            padding: 0.3rem 1rem;
-            border-radius: 15px;
+            padding: 0.4rem 1rem;
+            margin: -2rem -2rem 1rem -2rem;
+            text-align: center;
             font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
-            box-shadow: 0 2px 10px rgba(215, 38, 56, 0.4);
+            border-radius: 17px 17px 0 0;
+            box-shadow: 0 2px 10px rgba(215, 38, 56, 0.3);
         }
 
         .bundle-card.premium .bundle-bonus {
