@@ -534,10 +534,15 @@
             left: -20px;
         }
 
-        /* Stats Section - Modern Card Grid */
+        /* Stats Section - Investment Theme */
         .stats {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #006bb3 0%, #005494 100%);
+            padding: 120px 0;
+            background-color: #1a1a1a;
+            background-image: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), url('https://www.devmerce.com/wp-content/uploads/2025/07/investment-currency-forex-economy-trade-concept-scaled.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: white;
             position: relative;
             overflow: hidden;
@@ -546,80 +551,132 @@
         .stats::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: float 20s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 107, 179, 0.1) 0%, rgba(0, 84, 148, 0.1) 100%);
+            z-index: 1;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+        .stats .container {
             position: relative;
             z-index: 2;
         }
 
-        .stat {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 40px 30px;
+        .stats-header {
             text-align: center;
-            transition: all 0.3s ease;
+            margin-bottom: 80px;
+        }
+
+        .stats-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .stats-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px 80px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            text-align: center;
             position: relative;
-            overflow: hidden;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
         }
 
         .stat::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s ease;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 107, 179, 0.2), rgba(0, 84, 148, 0.2));
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .stat:hover::before {
-            left: 100%;
+            opacity: 1;
         }
 
         .stat:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-8px);
+            border-color: rgba(0, 107, 179, 0.5);
+            box-shadow: 0 20px 60px rgba(0, 107, 179, 0.3);
         }
 
         .stat-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #006bb3, #005494);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 30px;
+            margin: 0 auto 24px;
+            font-size: 32px;
             color: white;
+            box-shadow: 0 8px 30px rgba(0, 107, 179, 0.4);
+            position: relative;
+            z-index: 3;
         }
 
         .stat h3 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            text-shadow: none;
+            position: relative;
+            z-index: 3;
         }
 
         .stat p {
             color: rgba(255, 255, 255, 0.9);
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 500;
+            line-height: 1.4;
+            position: relative;
+            z-index: 3;
+        }
+
+        .stat-highlight {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+            color: #1a1a1a;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
         }
 
         /* Final CTA */
@@ -794,9 +851,19 @@
             }
 
             /* Stats mobile */
+            .stats {
+                padding: 80px 0;
+                background-attachment: scroll;
+            }
+
+            .stats-title {
+                font-size: 2rem;
+            }
+
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+                grid-template-columns: 1fr;
+                gap: 40px;
+                max-width: 400px;
             }
 
             .stat {
@@ -804,7 +871,13 @@
             }
 
             .stat h3 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+
+            .stat-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
             }
         }
 
@@ -1009,34 +1082,42 @@
 
     <section class="stats">
         <div class="container">
+            <div class="stats-header fade-in">
+                <h2 class="stats-title">Trusted by Thousands</h2>
+                <p class="stats-subtitle">Our track record speaks for itself. Join the growing community of successful businesses we've helped achieve their goals.</p>
+            </div>
             <div class="stats-grid">
                 <div class="stat fade-in">
+                    <div class="stat-highlight">Leading</div>
                     <div class="stat-icon">
-                        <i class="fas fa-dollar-sign"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>$50M+</h3>
-                    <p>Funded to date</p>
+                    <p>Total Funding<br>Secured</p>
                 </div>
                 <div class="stat fade-in">
+                    <div class="stat-highlight">Proven</div>
                     <div class="stat-icon">
-                        <i class="fas fa-building"></i>
+                        <i class="fas fa-handshake"></i>
                     </div>
                     <h3>10,000+</h3>
-                    <p>Businesses helped</p>
+                    <p>Businesses<br>Successfully Funded</p>
                 </div>
                 <div class="stat fade-in">
+                    <div class="stat-highlight">Fast</div>
                     <div class="stat-icon">
-                        <i class="fas fa-clock"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
                     <h3>24hrs</h3>
-                    <p>Average approval time</p>
+                    <p>Average Decision<br>Time</p>
                 </div>
                 <div class="stat fade-in">
+                    <div class="stat-highlight">Excellence</div>
                     <div class="stat-icon">
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-trophy"></i>
                     </div>
                     <h3>4.8/5</h3>
-                    <p>Customer rating</p>
+                    <p>Customer<br>Satisfaction</p>
                 </div>
             </div>
         </div>
