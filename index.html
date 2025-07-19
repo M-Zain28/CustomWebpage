@@ -29,7 +29,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--dark-bg);
+      background: #000000;
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
@@ -190,6 +190,43 @@
       position: relative;
       transition: all 0.4s ease;
       overflow: hidden;
+    }
+
+    .bonus-badge {
+      background: var(--red-gradient);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .bonus-badge.popular {
+      background: var(--gradient);
+      color: var(--black);
+    }
+
+    .package-price-container {
+      margin-bottom: 15px;
+    }
+
+    .original-price {
+      font-size: 1.2rem;
+      color: var(--muted);
+      text-decoration: line-through;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .package-billing {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 25px;
+      line-height: 1.4;
     }
 
     .package-card::before {
@@ -498,50 +535,74 @@
   </section>
 
   <section class="packages-section">
-    <h2 class="section-title">Choose Your Entry Package</h2>
-    <p class="section-subtitle">
-      Select the package that suits your style. Higher packages mean better chances and exclusive perks.
+    <h2 class="section-title">Choose Your Membership Plan</h2>
+    <p class="section-subtitle" style="max-width: 800px;">
+      BY PURCHASING A PACKAGE BELOW YOUR NAME WILL INSTANTLY GO INTO EVERY GIVEAWAY<br><br>
+      The sooner you join, the sooner you start earning points toward your dream lifestyle. With each month, you're not just entering a giveaway — you're accumulating valuable points that bring you closer to luxury prizes.
+    </p>
+    <p style="text-align: center; color: var(--muted); margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto;">
+      Join now, choose your plan, and start earning rewards immediately. The more you engage, the faster you can unlock the luxury items you've always dreamed of.
     </p>
 
     <div class="packages-grid">
       <div class="package-card">
-        <h3 class="package-title">BRONZE</h3>
-        <div class="package-price">$5</div>
-        <div class="package-entries">1 Entry</div>
+        <div class="bonus-badge">50 bonus entries</div>
+        <h3 class="package-title">Standard</h3>
+        <div class="package-price-container">
+          <span class="original-price">$99</span>
+          <div class="package-price">$0</div>
+        </div>
+        <div class="package-billing">$99 Billed Monthly when we reach 3,000 members (cancel anytime)</div>
         <ul class="package-features">
-          <li>Standard Entry</li>
-          <li>Email Updates</li>
-          <li>24/7 Support</li>
+          <li>Earn 4 FREE ACCUMULATING entries every month</li>
+          <li>Earn 4,000 ACCUMULATING points every month</li>
+          <li>Automatic entry into all current and future giveaways</li>
+          <li>Chance to win $10,000 Every Single Weekday (at 3k members)</li>
+          <li>Redeem points for luxury experiences like (cars, holiday getaways, yachts + more) at NO EXTRA COST</li>
         </ul>
-        <button class="package-button" onclick="selectPackage('bronze')">SELECT BRONZE</button>
+        <button class="package-button" onclick="selectPackage('standard')">SELECT STANDARD</button>
       </div>
 
       <div class="package-card featured">
-        <h3 class="package-title">SILVER</h3>
-        <div class="package-price">$15</div>
-        <div class="package-entries">5 Entries</div>
+        <div class="bonus-badge popular">200 bonus entries</div>
+        <h3 class="package-title">Premium</h3>
+        <div class="package-price-container">
+          <span class="original-price">$199</span>
+          <div class="package-price">$0</div>
+        </div>
+        <div class="package-billing">$199 Billed Monthly when we reach 3,000 members (cancel anytime)</div>
         <ul class="package-features">
-          <li>Multiple Entries</li>
-          <li>Priority Support</li>
-          <li>Exclusive Updates</li>
-          <li>Bonus Opportunities</li>
+          <li>Earn 12 FREE ACCUMULATING entries every month</li>
+          <li>Earn 12,000 ACCUMULATING points every month</li>
+          <li>Automatic entry into all current and future giveaways</li>
+          <li>Chance to win $10,000 Every Single Weekday (at 3k members)</li>
+          <li>Redeem points for luxury experiences like (cars, holiday getaways, yachts + more) at NO EXTRA COST</li>
         </ul>
-        <button class="package-button" onclick="selectPackage('silver')">SELECT SILVER</button>
+        <button class="package-button" onclick="selectPackage('premium')">SELECT PREMIUM</button>
       </div>
 
       <div class="package-card">
-        <h3 class="package-title">GOLD</h3>
-        <div class="package-price">$30</div>
-        <div class="package-entries">15 Entries + Bonus</div>
+        <div class="bonus-badge">500 bonus entries</div>
+        <h3 class="package-title">Platinum</h3>
+        <div class="package-price-container">
+          <span class="original-price">$399</span>
+          <div class="package-price">$0</div>
+        </div>
+        <div class="package-billing">$399 Billed Monthly when we reach 3,000 members (cancel anytime)</div>
         <ul class="package-features">
-          <li>Maximum Entries</li>
-          <li>VIP Support</li>
-          <li>Exclusive Bonuses</li>
-          <li>Early Access</li>
-          <li>Special Rewards</li>
+          <li>Earn 40 FREE ACCUMULATING entries every month</li>
+          <li>Earn 40,000 ACCUMULATING points every month</li>
+          <li>Automatic entry into all current and future giveaways</li>
+          <li>Chance to win $10,000 Every Single Weekday (at 3k members)</li>
+          <li>Redeem points for luxury experiences like (cars, holiday getaways, yachts + more) at NO EXTRA COST</li>
         </ul>
-        <button class="package-button" onclick="selectPackage('gold')">SELECT GOLD</button>
+        <button class="package-button" onclick="selectPackage('platinum')">SELECT PLATINUM</button>
       </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+      <p style="color: var(--gold); font-weight: 600; font-size: 1.1rem;">*Sign up now as an early bird to claim your Bonus Entries!</p>
+      <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">(Valid to Australian residents - T's & C's Apply)</p>
     </div>
   </section>
 
@@ -574,15 +635,15 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label class="form-label">Select Package</label>
-        <select name="bundle" id="package-select" class="form-input" required>
-          <option value="">-- Choose Your Package --</option>
-          <option value="bronze">Bronze – $5 – 1 Entry</option>
-          <option value="silver">Silver – $15 – 5 Entries</option>
-          <option value="gold">Gold – $30 – 15 Entries + Bonus</option>
-        </select>
-      </div>
+             <div class="form-group">
+         <label class="form-label">Select Package</label>
+         <select name="bundle" id="package-select" class="form-input" required>
+           <option value="">-- Choose Your Package --</option>
+           <option value="standard">Standard – $0 – 4 FREE entries monthly</option>
+           <option value="premium">Premium – $0 – 12 FREE entries monthly</option>
+           <option value="platinum">Platinum – $0 – 40 FREE entries monthly</option>
+         </select>
+       </div>
 
       <button type="submit" class="payment-button">
         <i class="fas fa-lock"></i> COMPLETE PAYMENT
