@@ -50,6 +50,12 @@
             justify-content: space-between;
         }
 
+        .header-nav-group {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
         .logo {
             display: flex;
             align-items: center;
@@ -876,11 +882,7 @@
 
                  /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .header-cta {
+            .header-nav-group {
                 display: none;
             }
 
@@ -1042,14 +1044,16 @@
                 <a href="#" class="logo">
                     <img src="https://www.devmerce.com/wp-content/uploads/2025/07/Loan-Wizard-Logoonly_.png" alt="Loan Wizards">
                 </a>
-                <nav>
-                    <ul class="nav-menu">
-                        <li><a href="#loans">Loans</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-                <a href="#apply" class="header-cta">Apply Now</a>
+                <div class="header-nav-group">
+                    <nav>
+                        <ul class="nav-menu">
+                            <li><a href="#loans">Loans</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <a href="#apply" class="header-cta">Apply Now</a>
+                </div>
                 <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
                 </button>
