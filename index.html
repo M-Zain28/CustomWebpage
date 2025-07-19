@@ -503,11 +503,174 @@
           padding: 4rem 1rem;
         }
 
-        .packages-section {
-          padding: 4rem 1rem;
+                 .packages-section {
+           padding: 4rem 1rem;
+         }
         }
-      }
-  </style>
+
+    /* Footer Styles */
+    .footer {
+        background: #000000;
+        border-top: 2px solid #FFD700;
+        padding: 3rem 0 1rem;
+        margin-top: 4rem;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+        color: #FFD700;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+    }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #FFD700;
+        margin-bottom: 1rem;
+    }
+
+    .footer-logo .koala-emoji {
+        font-size: 1.8rem;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .footer-description {
+        color: #CCCCCC;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-links a {
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: transform 0.3s;
+    }
+
+    .social-links a:hover {
+        transform: scale(1.2);
+    }
+
+    .footer-section ul {
+        list-style: none;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section ul li a {
+        color: #CCCCCC;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+        color: #FFD700;
+    }
+
+    .footer-section ul li:not(:has(a)) {
+        color: #CCCCCC;
+    }
+
+    .trust-badges-footer {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .trust-badges-footer .badge {
+        background: rgba(255, 215, 0, 0.1);
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        color: #FFD700;
+        padding: 0.4rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 215, 0, 0.3);
+        padding-top: 2rem;
+        text-align: center;
+    }
+
+    .footer-disclaimer {
+        background: rgba(215, 38, 56, 0.1);
+        border: 1px solid rgba(215, 38, 56, 0.3);
+        border-radius: 10px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .footer-disclaimer p {
+        color: #FFFFFF;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    .footer-copyright {
+        color: #888888;
+        font-size: 0.8rem;
+    }
+
+    .footer-copyright p {
+        margin-bottom: 0.5rem;
+    }
+
+    .gambling-notice {
+        font-weight: 600;
+        color: #D72638 !important;
+    }
+
+    .gambling-notice a {
+        color: #FFD700;
+        text-decoration: none;
+    }
+
+    .gambling-notice a:hover {
+        text-decoration: underline;
+    }
+
+    /* Footer Mobile Responsive */
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+
+        .trust-badges-footer {
+            align-items: center;
+        }
+
+        .footer-disclaimer {
+            text-align: left;
+        }
+    }
+    </style>
 </head>
 <body>
   <section class="hero-section">
@@ -689,6 +852,76 @@
       <i class="fas fa-rocket"></i> ENTER NOW
     </button>
   </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="container">
+          <div class="footer-content">
+              <div class="footer-section">
+                  <div class="footer-logo">
+                      <span class="koala-emoji">🐨</span>
+                      <span>KoalaVault</span>
+                  </div>
+                  <p class="footer-description">
+                      Australia's premier cash giveaway platform. Join thousands of Aussies who trust KoalaVault for their chance to win life-changing prizes.
+                  </p>
+                  <div class="social-links">
+                      <a href="#" aria-label="Facebook">📘</a>
+                      <a href="#" aria-label="Instagram">📷</a>
+                      <a href="#" aria-label="Twitter">🐦</a>
+                      <a href="#" aria-label="YouTube">📺</a>
+                  </div>
+              </div>
+
+              <div class="footer-section">
+                  <h4>Quick Links</h4>
+                  <ul>
+                      <li><a href="#home">Home</a></li>
+                      <li><a href="#bundles">Entry Bundles</a></li>
+                      <li><a href="#winners">Recent Winners</a></li>
+                      <li><a href="#faq">FAQ</a></li>
+                      <li><a href="#contact">Contact Us</a></li>
+                  </ul>
+              </div>
+
+              <div class="footer-section">
+                  <h4>Legal</h4>
+                  <ul>
+                      <li><a href="#terms">Terms & Conditions</a></li>
+                      <li><a href="#privacy">Privacy Policy</a></li>
+                      <li><a href="#disclaimer">Competition Disclaimer</a></li>
+                      <li><a href="#cancel">Cancellation Policy</a></li>
+                      <li><a href="#responsible">Responsible Gaming</a></li>
+                  </ul>
+              </div>
+
+              <div class="footer-section">
+                  <h4>Support</h4>
+                  <ul>
+                      <li>📧 support@koalavault.com.au</li>
+                      <li>📞 1300 KOALA (562 521)</li>
+                      <li>🕒 24/7 Support Available</li>
+                      <li>💬 Live Chat (9AM - 9PM AEST)</li>
+                  </ul>
+                  <div class="trust-badges-footer">
+                      <div class="badge">🔐 SSL Secured</div>
+                      <div class="badge">🇦🇺 Australian Owned</div>
+                      <div class="badge">✅ PCI Compliant</div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="footer-bottom">
+              <div class="footer-disclaimer">
+                  <p><strong>Important:</strong> KoalaVault is a legal Australian competition platform. Entry is voluntary and open to Australian residents aged 18+. No purchase necessary for free entry option available. Full terms apply.</p>
+              </div>
+              <div class="footer-copyright">
+                  <p>&copy; 2025 KoalaVault Pty Ltd. All rights reserved. Australian Business Number: 12 345 678 901</p>
+                  <p class="gambling-notice">🔞 <strong>18+ Only</strong> | Play Responsibly | <a href="#help">Gambling Help: 1800 858 858</a></p>
+              </div>
+          </div>
+      </div>
+  </footer>
 
   <script>
     function selectPackage(packageType) {
