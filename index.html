@@ -207,7 +207,14 @@
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 800px;
+            max-width: 1000px;
+        }
+
+        .hero-gallery {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
+            align-items: center;
         }
 
         .hero-image {
@@ -217,11 +224,27 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.1);
         }
 
+        .hero-image.main {
+            grid-column: 2;
+        }
+
+        .hero-image.side {
+            height: 300px;
+        }
+
         .hero-image img {
             width: 100%;
-            height: 500px;
+            height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        .hero-image.main img {
+            height: 400px;
+        }
+
+        .hero-image.side img {
+            height: 300px;
         }
 
         .hero h1 {
@@ -1167,8 +1190,27 @@
                 margin-bottom: 40px;
             }
 
-            .hero-image img {
-                height: 300px;
+            .hero-gallery {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .hero-image.main {
+                grid-column: 1;
+                order: 1;
+            }
+
+            .hero-image.side {
+                order: 2;
+                height: 200px;
+            }
+
+            .hero-image.main img {
+                height: 250px;
+            }
+
+            .hero-image.side img {
+                height: 200px;
             }
 
             .how-it-works-container {
@@ -1494,8 +1536,16 @@
                     </div>
                 </div>
                 <div class="hero-image-section">
-                    <div class="hero-image">
-                        <img src="https://images.pexels.com/photos/7857585/pexels-photo-7857585.jpeg" alt="Beautiful women smiling">
+                    <div class="hero-gallery">
+                        <div class="hero-image side">
+                            <img src="https://images.pexels.com/photos/7857557/pexels-photo-7857557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Woman standing among cardboard boxes and writing on paper">
+                        </div>
+                        <div class="hero-image main">
+                            <img src="https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Laughing businesswoman working in office with laptop">
+                        </div>
+                        <div class="hero-image side">
+                            <img src="https://images.pexels.com/photos/7857551/pexels-photo-7857551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Business woman using a gray laptop">
+                        </div>
                     </div>
                 </div>
             </div>
