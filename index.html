@@ -1726,17 +1726,11 @@
             </div>
 
                          <div class="carousel-controls">
-                <button class="control-btn" onclick="prevTestimonial()" id="prevTestimonialBtn">❮</button>
+                <button class="control-btn prev-btn">❮</button>
                 <div class="dots-container">
-                    <span class="dot active" onclick="goToTestimonial(0)"></span>
-                    <span class="dot" onclick="goToTestimonial(1)"></span>
-                    <span class="dot" onclick="goToTestimonial(2)"></span>
-                    <span class="dot" onclick="goToTestimonial(3)"></span>
-                    <span class="dot" onclick="goToTestimonial(4)"></span>
-                    <span class="dot" onclick="goToTestimonial(5)"></span>
-                    <span class="dot" onclick="goToTestimonial(6)"></span>
+                    <!-- Dots will be created dynamically by JavaScript -->
                 </div>
-                <button class="control-btn" onclick="nextTestimonial()" id="nextTestimonialBtn">❯</button>
+                <button class="control-btn next-btn">❯</button>
             </div>
         </div>
     </section>
@@ -1904,122 +1898,156 @@
             }
                  }, 2000);
 
-        // Testimonial Carousel - Fixed Version
-        var currentTestimonial = 0;
-        var totalTestimonials = 7;
-
-        // Define functions immediately - no wait for DOM
-        function nextTestimonial() {
-            console.log('Next testimonial function called');
-            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
-            updateTestimonialDisplay();
-        }
-
-        function prevTestimonial() {
-            console.log('Previous testimonial function called');
-            currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
-            updateTestimonialDisplay();
-        }
-
-        function goToTestimonial(index) {
-            console.log('Go to testimonial function called:', index);
-            currentTestimonial = index;
-            updateTestimonialDisplay();
-        }
-
-        function updateTestimonialDisplay() {
-            console.log('Updating testimonial display to:', currentTestimonial);
-            
-            // Update slides
-            var slides = document.querySelectorAll('.testimonial-slide');
-            console.log('Found slides:', slides.length);
-            
-            // First remove active class from all slides
-            for (var i = 0; i < slides.length; i++) {
-                slides[i].classList.remove('active');
-                slides[i].style.opacity = '0';
-                slides[i].style.visibility = 'hidden';
-            }
-            
-            // Then add active class to current slide
-            if (slides[currentTestimonial]) {
-                slides[currentTestimonial].classList.add('active');
-                slides[currentTestimonial].style.opacity = '1';
-                slides[currentTestimonial].style.visibility = 'visible';
-                console.log('Activated slide:', currentTestimonial);
-            }
-
-            // Update dots
-            var dots = document.querySelectorAll('.dot');
-            console.log('Found dots:', dots.length);
-            
-            for (var i = 0; i < dots.length; i++) {
-                if (i === currentTestimonial) {
-                    dots[i].classList.add('active');
+        document.addEventListener('DOMContentLoaded', () => {
+            // Header Scroll Effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
                 } else {
-                    dots[i].classList.remove('active');
+                    header.classList.remove('scrolled');
                 }
-            }
-        }
+            });
 
-        // Make functions globally available
-        window.nextTestimonial = nextTestimonial;
-        window.prevTestimonial = prevTestimonial;
-        window.goToTestimonial = goToTestimonial;
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileNavMenu = document.querySelector('.mobile-nav-menu');
 
-        // Initialize immediately when script loads
-        setTimeout(function() {
-            console.log('Initializing testimonial display...');
-            updateTestimonialDisplay();
-        }, 100);
-
-        // Wait for page to load completely
-        // Test functions immediately
-        console.log('Testing functions on script load...');
-        setTimeout(function() {
-            console.log('Testing nextTestimonial function...');
-            if (typeof window.nextTestimonial === 'function') {
-                console.log('Function exists, calling it...');
-                window.nextTestimonial();
-            } else {
-                console.error('nextTestimonial function not found!');
-            }
-        }, 1000);
-
-        // Initialize testimonial carousel when page loads
-        window.addEventListener('load', function() {
-            console.log('Testimonial carousel initialized');
-            
-            // Add direct event listeners as backup
-            var nextBtn = document.querySelector('.control-btn:last-child');
-            var prevBtn = document.querySelector('.control-btn:first-child');
-            
-            if (nextBtn) {
-                nextBtn.addEventListener('click', function() {
-                    console.log('Next button clicked via event listener');
-                    nextTestimonial();
+            if (mobileMenuBtn && mobileNavMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileNavMenu.classList.toggle('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', mobileNavMenu.classList.contains('active'));
                 });
-                console.log('Next button event listener added');
-            }
-            
-            if (prevBtn) {
-                prevBtn.addEventListener('click', function() {
-                    console.log('Prev button clicked via event listener');
-                    prevTestimonial();
+
+                // Close mobile menu when a link is clicked
+                mobileNavMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileNavMenu.classList.remove('active');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    });
                 });
-                console.log('Prev button event listener added');
             }
-            
-            // Auto-play testimonials every 6 seconds
-            setInterval(function() {
-                nextTestimonial();
-            }, 6000);
-            
-            // Test after 2 seconds
-            setTimeout(function() {
-                console.log('Auto-testing testimonial navigation...');
-                nextTestimonial();
-            }, 2000);
+
+            // Testimonial Carousel
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dotsContainer = document.querySelector('.dots-container');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let currentSlide = 0;
+
+            if (slides.length > 0 && dotsContainer && prevBtn && nextBtn) {
+                // Create dots
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    if (index === 0) {
+                        dot.classList.add('active');
+                    }
+                    dot.addEventListener('click', () => {
+                        showSlide(index);
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+
+                const dots = document.querySelectorAll('.dot');
+
+                function showSlide(index) {
+                    // Ensure index wraps around
+                    if (index >= slides.length) {
+                        currentSlide = 0;
+                    } else if (index < 0) {
+                        currentSlide = slides.length - 1;
+                    } else {
+                        currentSlide = index;
+                    }
+
+                    slides.forEach((slide, i) => {
+                        if (i === currentSlide) {
+                            slide.classList.add('active');
+                            slide.setAttribute('aria-hidden', 'false');
+                        } else {
+                            slide.classList.remove('active');
+                            slide.setAttribute('aria-hidden', 'true');
+                        }
+                    });
+
+                    dots.forEach((dot, i) => {
+                        if (i === currentSlide) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                }
+
+                prevBtn.addEventListener('click', () => {
+                    showSlide(currentSlide - 1);
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    showSlide(currentSlide + 1);
+                });
+
+                // Initialize the first slide
+                showSlide(currentSlide);
+
+                // Auto-play testimonials every 6 seconds
+                setInterval(() => {
+                    showSlide(currentSlide + 1);
+                }, 6000);
+            }
+
+            // Stats Animation - Enhanced for our format
+            const statsSection = document.querySelector('.stats');
+            if (statsSection) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.3
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const statNumbers = entry.target.querySelectorAll('.stat-number');
+                            statNumbers.forEach(numElement => {
+                                const target = parseFloat(numElement.getAttribute('data-target'));
+                                animateCounter(numElement, target);
+                                numElement.closest('.stat').classList.add('animate');
+                            });
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                observer.observe(statsSection);
+            }
+
+            // Animated counter for stats
+            function animateCounter(element, target, suffix = '') {
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    let displayValue;
+                    if (target === 50) {
+                        displayValue = '$' + Math.ceil(current) + 'M+';
+                    } else if (target === 10000) {
+                        displayValue = Math.ceil(current).toLocaleString() + '+';
+                    } else if (target === 24) {
+                        displayValue = Math.ceil(current) + 'hrs';
+                    } else if (target === 4.8) {
+                        displayValue = current.toFixed(1) + '/5';
+                    }
+                    
+                    element.textContent = displayValue;
+                }, 30);
+            }
         });
     </script>
 </body>
