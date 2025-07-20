@@ -750,7 +750,8 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -761,6 +762,7 @@
 
         .testimonial-slide.active {
             opacity: 1;
+            visibility: visible;
         }
 
         .quote-icon {
@@ -1581,7 +1583,7 @@
                 <div class="testimonial-wrapper" id="testimonialWrapper">
                     
                     <!-- Testimonial 1 -->
-                    <div class="testimonial-slide active" data-slide="0">
+                    <div class="testimonial-slide active" data-slide="0" style="opacity: 1; visibility: visible;">
                         <div class="quote-icon">"</div>
                         <p class="testimonial-text">Loan Wizards made getting funding for my café expansion incredibly simple. The whole process took less than a week, and now we've doubled our seating capacity. Couldn't be happier with the service!</p>
                         <div class="testimonial-author-info">
@@ -1932,13 +1934,19 @@
             var slides = document.querySelectorAll('.testimonial-slide');
             console.log('Found slides:', slides.length);
             
+            // First remove active class from all slides
             for (var i = 0; i < slides.length; i++) {
-                if (i === currentTestimonial) {
-                    slides[i].classList.add('active');
-                    console.log('Activated slide:', i);
-                } else {
-                    slides[i].classList.remove('active');
-                }
+                slides[i].classList.remove('active');
+                slides[i].style.opacity = '0';
+                slides[i].style.visibility = 'hidden';
+            }
+            
+            // Then add active class to current slide
+            if (slides[currentTestimonial]) {
+                slides[currentTestimonial].classList.add('active');
+                slides[currentTestimonial].style.opacity = '1';
+                slides[currentTestimonial].style.visibility = 'visible';
+                console.log('Activated slide:', currentTestimonial);
             }
 
             // Update dots
@@ -1958,6 +1966,12 @@
         window.nextTestimonial = nextTestimonial;
         window.prevTestimonial = prevTestimonial;
         window.goToTestimonial = goToTestimonial;
+
+        // Initialize immediately when script loads
+        setTimeout(function() {
+            console.log('Initializing testimonial display...');
+            updateTestimonialDisplay();
+        }, 100);
 
         // Wait for page to load completely
         // Test functions immediately
