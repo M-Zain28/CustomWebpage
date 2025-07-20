@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Win Big – High Roller Giveaways</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --gold: #FFD700;
+      --black: #000000;
+      --charcoal: #1C1C1C;
+      --white: #FFFFFF;
+      --accent-red: #D72638;
+      --text: #FFFFFF;
+      --muted: #888;
+      --gradient: linear-gradient(135deg, #FFD700 0%, #FFD700 100%);
+      --red-gradient: linear-gradient(135deg, #D72638 0%, #ff1744 50%, #D72638 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: #000000;
+    }
+
+    body {
+      font-family: 'Montserrat', Helvetica, sans-serif;
+      background: #000000;
+      color: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .hero-section {
+      background: #000000;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+      padding-top: 140px;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .hero-particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, var(--gold), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 215, 0, 0.3), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 215, 0, 0.5), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 215, 0, 0.2), transparent);
+      background-repeat: repeat;
+      background-size: 150px 100px;
+      animation: sparkle 8s linear infinite;
+      opacity: 0.3;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+      animation: glow 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes sparkle {
+      0% { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(-150px) translateY(-100px); }
+    }
+
+    @keyframes glow {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+      100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.2; }
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 215, 0, 0.1);
+      border: 2px solid var(--gold);
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      margin-bottom: 2rem;
+      animation: pulse 2s infinite;
+    }
+
+    .badge-icon {
+      font-size: 1.2rem;
+    }
+
+    .badge-text {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-title {
+      font-family: 'Montserrat', Helvetica, sans-serif;
+      font-weight: 900;
+      margin-bottom: 2rem;
+      line-height: 0.9;
+    }
+
+    .title-line-1 {
+      display: block;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .title-line-2, .title-line-3 {
+      display: block;
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: var(--gold);
+      text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+      letter-spacing: -2px;
+    }
+
+    .hero-or-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .or-line {
+      height: 2px;
+      width: 60px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .or-text {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--gold);
+      border-radius: 50px;
+      background: rgba(255, 215, 0, 0.1);
+    }
+
+    .hero-cash-prize {
+      margin-bottom: 2rem;
+    }
+
+    .cash-amount {
+      font-family: 'Montserrat', Helvetica, sans-serif;
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 900;
+      color: var(--gold);
+      text-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+      margin-bottom: 0.5rem;
+    }
+
+    .cash-subtitle {
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      color: var(--white);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .hero-early-bird {
+      margin: 2rem 0;
+    }
+
+    .early-bird-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(215, 38, 56, 0.1);
+      border: 2px solid var(--accent-red);
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      animation: pulse 3s infinite;
+    }
+
+    .early-bird-icon {
+      font-size: 2rem;
+      animation: bounce 2s infinite;
+    }
+
+    .early-bird-title {
+      color: var(--accent-red);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .early-bird-amount {
+      color: var(--white);
+      font-weight: 900;
+      font-size: 1.3rem;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Montserrat', Helvetica, sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #ccc;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .stat-divider {
+      width: 2px;
+      height: 40px;
+      background: linear-gradient(180deg, transparent, var(--gold), transparent);
+    }
+
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.2rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      min-width: 180px;
+    }
+
+    .cta-button.primary {
+      background: var(--red-gradient);
+      color: var(--white);
+      box-shadow: 0 10px 30px rgba(215, 38, 56, 0.3);
+    }
+
+    .cta-button.primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(215, 38, 56, 0.5);
+    }
+
+    .cta-button.secondary {
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+    }
+
+    .cta-button.secondary:hover {
+      background: rgba(255, 215, 0, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+    }
+
+    .button-icon {
+      font-size: 1.2rem;
+    }
+
+    .hero-guarantee {
+      margin-top: 3rem;
+    }
+
+    .guarantee-items {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .guarantee-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    .guarantee-icon {
+      font-size: 1.1rem;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* Hero Mobile Responsive */
+          @media (max-width: 768px) {
+        .hero-stats {
+          gap: 1rem;
+        }
+        
+        .stat-divider {
+          display: none;
+        }
+        
+        .hero-cta {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .cta-button {
+          width: 100%;
+          max-width: 300px;
+        }
+        
+        .guarantee-items {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .packages-container {
+          padding: 0 1rem;
+        }
+
+        .payment-container {
+          padding: 0 1rem;
+        }
+
+        .final-cta-container {
+          padding: 0 1rem;
+        }
+
+        .packages-section {
+          padding: 4rem 0;
+        }
+
+        .payment-section {
+          padding: 4rem 0;
+        }
+
+        .final-cta {
+          padding: 4rem 0;
+        }
+      }
+
+    .packages-section {
+      padding: 6rem 0;
+      background: #000000;
+      width: 100%;
+    }
+
+    .packages-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', Helvetica, sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 60px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    .package-card {
+      background: #000000;
+      border: 2px solid #333;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      transition: all 0.4s ease;
+      overflow: hidden;
+    }
+
+    .bonus-badge {
+      background: var(--red-gradient);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .bonus-badge.popular {
+      background: var(--gradient);
+      color: var(--black);
+    }
+
+    .package-price-container {
+      margin-bottom: 15px;
+    }
+
+    .original-price {
+      font-size: 1.2rem;
+      color: var(--muted);
+      text-decoration: line-through;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .package-billing {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
+
+    .package-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(transparent, var(--gold), transparent 30%);
+      animation: rotate 4s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .package-card:hover::before {
+      opacity: 0.1;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .package-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--gold);
+      box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2);
+    }
+
+    .package-card.featured {
+      border-color: var(--gold);
+      transform: scale(1.05);
+      box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3);
+    }
+
+    .package-title {
+      font-family: 'Montserrat', Helvetica, sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--gold);
+    }
+
+    .package-price {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .package-entries {
+      font-size: 1.3rem;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .package-features {
+      list-style: none;
+      margin-bottom: 40px;
+    }
+
+    .package-features li {
+      padding: 8px 0;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .package-features li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .package-button {
+      background: var(--red-gradient);
+      color: var(--white);
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .package-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(215, 38, 56, 0.4);
+    }
+
+    .payment-section {
+      background: #000000;
+      margin: 0;
+      padding: 6rem 0;
+      width: 100%;
+    }
+
+    .payment-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .payment-title {
+      font-family: 'Montserrat', Helvetica, sans-serif;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--white);
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 15px 20px;
+      background: var(--black);
+      border: 2px solid #333;
+      border-radius: 12px;
+      color: var(--white);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .payment-button {
+      background: var(--red-gradient);
+      color: var(--white);
+      padding: 18px 40px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .payment-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(220, 20, 60, 0.4);
+    }
+
+    .security-badges {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .security-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .final-cta {
+      background: #000000;
+      margin: 0;
+      padding: 6rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .final-cta-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: none;
+      animation: sparkle 3s linear infinite;
+    }
+
+    @keyframes sparkle {
+      0% { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(-100px) translateY(-100px); }
+    }
+
+    .final-cta-title {
+      font-family: 'Montserrat', Helvetica, sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+      color: var(--white);
+    }
+
+    .final-cta-subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 2;
+      color: var(--white);
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+
+    .countdown-item {
+      background: rgba(255, 215, 0, 0.1);
+      border: 2px solid var(--gold);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      min-width: 80px;
+    }
+
+    .countdown-number {
+      font-family: 'Montserrat', Helvetica, sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+      display: block;
+    }
+
+    .countdown-label {
+      font-size: 0.9rem;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+
+                     @media (max-width: 768px) {
+         .form-row {
+           grid-template-columns: 1fr;
+         }
+         
+         .packages-grid {
+           grid-template-columns: 1fr;
+         }
+        }
+
+    /* Footer Styles */
+    .footer {
+        background: #000000;
+        border-top: 2px solid #FFD700;
+        padding: 3rem 0 1rem;
+        margin-top: 0;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+        color: #FFD700;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+    }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #FFD700;
+        margin-bottom: 1rem;
+    }
+
+    .footer-logo .koala-emoji {
+        font-size: 1.8rem;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .footer-description {
+        color: #CCCCCC;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-links a {
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: transform 0.3s;
+    }
+
+    .social-links a:hover {
+        transform: scale(1.2);
+    }
+
+    .footer-section ul {
+        list-style: none;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section ul li a {
+        color: #CCCCCC;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+        color: #FFD700;
+    }
+
+    .footer-section ul li:not(:has(a)) {
+        color: #CCCCCC;
+    }
+
+    .trust-badges-footer {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .trust-badges-footer .badge {
+        background: rgba(255, 215, 0, 0.1);
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        color: #FFD700;
+        padding: 0.4rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 215, 0, 0.3);
+        padding-top: 2rem;
+        text-align: center;
+    }
+
+    .footer-disclaimer {
+        background: rgba(215, 38, 56, 0.1);
+        border: 1px solid rgba(215, 38, 56, 0.3);
+        border-radius: 10px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .footer-disclaimer p {
+        color: #FFFFFF;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    .footer-copyright {
+        color: #888888;
+        font-size: 0.8rem;
+    }
+
+    .footer-copyright p {
+        margin-bottom: 0.5rem;
+    }
+
+    .gambling-notice {
+        font-weight: 600;
+        color: #D72638 !important;
+    }
+
+    .gambling-notice a {
+        color: #FFD700;
+        text-decoration: none;
+    }
+
+    .gambling-notice a:hover {
+        text-decoration: underline;
+    }
+
+    /* Footer Mobile Responsive */
+    @media (max-width: 768px) {
+        .footer-container {
+            padding: 0 1rem;
+        }
+
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+
+        .trust-badges-footer {
+            align-items: center;
+        }
+
+        .footer-disclaimer {
+            text-align: left;
+        }
+    }
+
+    /* Header */
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        z-index: 1000;
+        padding: 0;
+    }
+
+    nav {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        height: 80px;
+        box-sizing: border-box;
+    }
+
+    .logo {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #FFD700;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+        transform: scale(1.05);
+    }
+
+    .logo .koala-emoji {
+        font-size: 2.2rem;
+        animation: float 4s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+    }
+
+    .nav-center {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50px;
+        padding: 0.5rem 2rem;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        position: relative;
+        padding: 0.8rem 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(45deg, #FFD700, #FFF700);
+        transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #FFD700;
+        transform: translateY(-2px);
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .header-cta-button {
+        background: linear-gradient(135deg, #D72638, #FF4757, #D72638);
+        background-size: 200% 200%;
+        color: #FFFFFF;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 50px;
+        box-shadow: 0 8px 25px rgba(215, 38, 56, 0.4);
+        transition: all 0.4s ease;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+        letter-spacing: 0.5px;
+    }
+
+    .header-cta-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.6s ease;
+    }
+
+    .header-cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(215, 38, 56, 0.6);
+        background-position: 100% 0;
+    }
+
+    .header-cta-button:hover::before {
+        left: 100%;
+    }
+
+    .header-cta-button:active {
+        transform: translateY(-1px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: #FFFFFF;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 999;
+        padding: 1rem 0;
+    }
+
+    .mobile-nav.active {
+        display: block;
+    }
+
+    .mobile-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-nav ul li {
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    .mobile-nav ul li a {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .mobile-nav ul li a:hover {
+        color: #FFD700;
+    }
+
+    .mobile-nav-cta {
+        background: linear-gradient(45deg, #D72638, #FF4757) !important;
+        color: #FFFFFF !important;
+        padding: 0.8rem 1.5rem !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        border-radius: 25px !important;
+        margin: 0.5rem 1rem !important;
+        display: inline-block !important;
+    }
+
+    /* Header Mobile Responsive */
+    @media (max-width: 768px) {
+        nav {
+            padding: 0.8rem 1.5rem;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+        }
+
+        .logo .koala-emoji {
+            font-size: 2rem;
+        }
+
+        .nav-center {
+            display: none;
+        }
+
+        .header-cta-button {
+            display: none;
+        }
+
+        .mobile-menu-toggle {
+            display: block;
+            font-size: 1.8rem;
+            padding: 0.5rem;
+        }
+    }
+
+    /* Announcement Bar */
+    .announcement-bar {
+        position: fixed;
+        top: 80px; /* Adjust based on your header height */
+        left: 0;
+        width: 100%;
+        background: linear-gradient(45deg, #D72638, #FF4757);
+        z-index: 999;
+        overflow: hidden;
+        padding: 0.8rem 0;
+        box-shadow: 0 4px 15px rgba(215, 38, 56, 0.4);
+    }
+
+    .announcement-content {
+        display: flex;
+        animation: scroll 20s linear infinite;
+        white-space: nowrap;
+    }
+
+    .announcement-text {
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-right: 4rem;
+        display: inline-block;
+    }
+
+    @keyframes scroll {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+
+         /* Announcement Bar Mobile Responsive */
+     @media (max-width: 768px) {
+         .announcement-bar {
+             top: 70px; /* Adjust for mobile header height */
+         }
+
+         .announcement-text {
+             font-size: 1rem;
+         }
+
+         .hero-section {
+             padding-top: 120px;
+         }
+     }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="https://koalavault.com/KoalaVault/" class="logo">
+                <span class="koala-emoji">🐨</span>
+                KoalaVault
+            </a>
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="https://koalavault.com/KoalaVault/">Home</a></li>
+                    <li><a href="https://koalavault.com/KoalaVault/about/">About</a></li>
+                    <li><a href="https://koalavault.com/KoalaVault/current-giveways/">Current Giveaways</a></li>
+                </ul>
+            </div>
+            <a href="https://koalavault.com/KoalaVault/current-giveways/" class="header-cta-button">Enter Now</a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+        </nav>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="https://koalavault.com/KoalaVault/">Home</a></li>
+                <li><a href="https://koalavault.com/KoalaVault/about/">About</a></li>
+                <li><a href="https://koalavault.com/KoalaVault/current-giveways/">Current Giveaways</a></li>
+                <li><a href="https://koalavault.com/KoalaVault/current-giveways/" class="mobile-nav-cta">Enter Now</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-content">
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+        </div>
+    </div>
+
+    <section class="hero-section">
+    <div class="hero-background">
+      <div class="hero-particles"></div>
+      <div class="hero-glow"></div>
+    </div>
+    
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-icon">🏆</span>
+        <span class="badge-text">MAJOR GIVEAWAY</span>
+      </div>
+      
+      <h1 class="hero-title">
+        <span class="title-line-1">WIN A</span>
+        <span class="title-line-2">FERRARI 812</span>
+        <span class="title-line-3">SUPERFAST</span>
+      </h1>
+      
+      <div class="hero-or-divider">
+        <span class="or-line"></span>
+        <span class="or-text">OR</span>
+        <span class="or-line"></span>
+      </div>
+      
+      <div class="hero-cash-prize">
+        <div class="cash-amount">$500,000</div>
+        <div class="cash-subtitle">TAX FREE CASH</div>
+      </div>
+      
+      <div class="hero-early-bird">
+        <div class="early-bird-container">
+          <div class="early-bird-icon">⚡</div>
+          <div class="early-bird-content">
+            <div class="early-bird-title">EARLY BIRD BONUS</div>
+            <div class="early-bird-amount">$100,000 DRAW</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">47,832</div>
+          <div class="stat-label">Current Entries</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">$2.1M+</div>
+          <div class="stat-label">Prizes Won</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">15,420</div>
+          <div class="stat-label">Happy Winners</div>
+        </div>
+      </div>
+      
+      <div class="hero-cta">
+        <button class="cta-button primary" onclick="document.querySelector('.packages-section').scrollIntoView()">
+          <span class="button-icon">🚀</span>
+          <span class="button-text">ENTER NOW</span>
+        </button>
+        <button class="cta-button secondary" onclick="document.querySelector('.packages-section').scrollIntoView()">
+          <span class="button-icon">💎</span>
+          <span class="button-text">VIEW PRIZES</span>
+        </button>
+      </div>
+      
+      <div class="hero-guarantee">
+        <div class="guarantee-items">
+          <div class="guarantee-item">
+            <span class="guarantee-icon">🔒</span>
+            <span class="guarantee-text">100% Secure</span>
+          </div>
+          <div class="guarantee-item">
+            <span class="guarantee-icon">🇦🇺</span>
+            <span class="guarantee-text">Australian Licensed</span>
+          </div>
+          <div class="guarantee-item">
+            <span class="guarantee-icon">⚡</span>
+            <span class="guarantee-text">Instant Entry</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="packages-section">
+    <div class="packages-container">
+      <h2 class="section-title">Choose Your Membership Plan</h2>
+      <p class="section-subtitle" style="max-width: 800px;">
+        BY PURCHASING A PACKAGE BELOW YOUR NAME WILL INSTANTLY GO INTO EVERY GIVEAWAY<br><br>
+        The sooner you join, the sooner you start earning points toward your dream lifestyle. With each month, you're not just entering a giveaway — you're accumulating valuable points that bring you closer to luxury prizes.
+      </p>
+      <p style="text-align: center; color: var(--muted); margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto;">
+        Join now, choose your plan, and start earning rewards immediately. The more you engage, the faster you can unlock the luxury items you've always dreamed of.
+      </p>
+
+      <div class="packages-grid">
+      <div class="package-card">
+        <div class="bonus-badge">50 bonus entries</div>
+        <h3 class="package-title">Standard</h3>
+        <div class="package-price-container">
+          <span class="original-price">$99</span>
+          <div class="package-price">$0</div>
+        </div>
+        <div class="package-billing">$99 Billed Monthly when we reach 3,000 members (cancel anytime)</div>
+        <ul class="package-features">
+          <li>Earn 4 FREE ACCUMULATING entries every month</li>
+          <li>Earn 4,000 ACCUMULATING points every month</li>
+          <li>Automatic entry into all current and future giveaways</li>
+          <li>Chance to win $10,000 Every Single Weekday (at 3k members)</li>
+          <li>Redeem points for luxury experiences like (cars, holiday getaways, yachts + more) at NO EXTRA COST</li>
+        </ul>
+        <button class="package-button" onclick="selectPackage('standard')">SELECT STANDARD</button>
+      </div>
+
+      <div class="package-card featured">
+        <div class="bonus-badge popular">200 bonus entries</div>
+        <h3 class="package-title">Premium</h3>
+        <div class="package-price-container">
+          <span class="original-price">$199</span>
+          <div class="package-price">$0</div>
+        </div>
+        <div class="package-billing">$199 Billed Monthly when we reach 3,000 members (cancel anytime)</div>
+        <ul class="package-features">
+          <li>Earn 12 FREE ACCUMULATING entries every month</li>
+          <li>Earn 12,000 ACCUMULATING points every month</li>
+          <li>Automatic entry into all current and future giveaways</li>
+          <li>Chance to win $10,000 Every Single Weekday (at 3k members)</li>
+          <li>Redeem points for luxury experiences like (cars, holiday getaways, yachts + more) at NO EXTRA COST</li>
+        </ul>
+        <button class="package-button" onclick="selectPackage('premium')">SELECT PREMIUM</button>
+      </div>
+
+      <div class="package-card">
+        <div class="bonus-badge">500 bonus entries</div>
+        <h3 class="package-title">Platinum</h3>
+        <div class="package-price-container">
+          <span class="original-price">$399</span>
+          <div class="package-price">$0</div>
+        </div>
+        <div class="package-billing">$399 Billed Monthly when we reach 3,000 members (cancel anytime)</div>
+        <ul class="package-features">
+          <li>Earn 40 FREE ACCUMULATING entries every month</li>
+          <li>Earn 40,000 ACCUMULATING points every month</li>
+          <li>Automatic entry into all current and future giveaways</li>
+          <li>Chance to win $10,000 Every Single Weekday (at 3k members)</li>
+          <li>Redeem points for luxury experiences like (cars, holiday getaways, yachts + more) at NO EXTRA COST</li>
+        </ul>
+        <button class="package-button" onclick="selectPackage('platinum')">SELECT PLATINUM</button>
+      </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 40px;">
+        <p style="color: var(--gold); font-weight: 600; font-size: 1.1rem;">*Sign up now as an early bird to claim your Bonus Entries!</p>
+        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">(Valid to Australian residents - T's & C's Apply)</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="payment-section">
+    <div class="payment-container">
+      <h2 class="payment-title">Secure Payment</h2>
+      <form id="payment-form" action="/process-payment" method="POST">
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" name="name" class="form-input" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" name="email" class="form-input" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Card Number</label>
+        <input type="text" name="card_number" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Expiry Date</label>
+          <input type="text" name="expiry" class="form-input" placeholder="MM/YY" maxlength="5" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">CVV</label>
+          <input type="text" name="cvv" class="form-input" placeholder="123" maxlength="4" required>
+        </div>
+      </div>
+
+             <div class="form-group">
+         <label class="form-label">Select Package</label>
+         <select name="bundle" id="package-select" class="form-input" required>
+           <option value="">-- Choose Your Package --</option>
+           <option value="standard">Standard – $0 – 4 FREE entries monthly</option>
+           <option value="premium">Premium – $0 – 12 FREE entries monthly</option>
+           <option value="platinum">Platinum – $0 – 40 FREE entries monthly</option>
+         </select>
+       </div>
+
+      <button type="submit" class="payment-button">
+        <i class="fas fa-lock"></i> COMPLETE PAYMENT
+      </button>
+
+      <div class="security-badges">
+        <div class="security-badge">
+          <i class="fas fa-shield-alt"></i>
+          <span>256-bit SSL</span>
+        </div>
+        <div class="security-badge">
+          <i class="fab fa-cc-stripe"></i>
+          <span>Stripe Secure</span>
+        </div>
+        <div class="security-badge">
+          <i class="fas fa-flag"></i>
+          <span>AU Licensed</span>
+        </div>
+              </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="final-cta-container">
+      <h2 class="final-cta-title">DON'T MISS OUT</h2>
+      <p class="final-cta-subtitle">Your $100K fortune awaits. Every second counts.</p>
+      
+      <div class="countdown">
+      <div class="countdown-item">
+        <span class="countdown-number" id="days">07</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="hours">23</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="minutes">45</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="seconds">30</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="footer-container">
+          <div class="footer-content">
+              <div class="footer-section">
+                  <div class="footer-logo">
+                      <span class="koala-emoji">🐨</span>
+                      <span>KoalaVault</span>
+                  </div>
+                  <p class="footer-description">
+                      Australia's premier cash giveaway platform. Join thousands of Aussies who trust KoalaVault for their chance to win life-changing prizes.
+                  </p>
+                  <div class="social-links">
+                      <a href="#" aria-label="Facebook">📘</a>
+                      <a href="#" aria-label="Instagram">📷</a>
+                      <a href="#" aria-label="Twitter">🐦</a>
+                      <a href="#" aria-label="YouTube">📺</a>
+                  </div>
+              </div>
+
+              <div class="footer-section">
+                  <h4>Quick Links</h4>
+                  <ul>
+                      <li><a href="#home">Home</a></li>
+                      <li><a href="#bundles">Entry Bundles</a></li>
+                      <li><a href="#winners">Recent Winners</a></li>
+                      <li><a href="#faq">FAQ</a></li>
+                      <li><a href="#contact">Contact Us</a></li>
+                  </ul>
+              </div>
+
+              <div class="footer-section">
+                  <h4>Legal</h4>
+                  <ul>
+                      <li><a href="#terms">Terms & Conditions</a></li>
+                      <li><a href="#privacy">Privacy Policy</a></li>
+                      <li><a href="#disclaimer">Competition Disclaimer</a></li>
+                      <li><a href="#cancel">Cancellation Policy</a></li>
+                      <li><a href="#responsible">Responsible Gaming</a></li>
+                  </ul>
+              </div>
+
+              <div class="footer-section">
+                  <h4>Support</h4>
+                  <ul>
+                      <li>📧 support@koalavault.com.au</li>
+                      <li>📞 1300 KOALA (562 521)</li>
+                      <li>🕒 24/7 Support Available</li>
+                      <li>💬 Live Chat (9AM - 9PM AEST)</li>
+                  </ul>
+                  <div class="trust-badges-footer">
+                      <div class="badge">🔐 SSL Secured</div>
+                      <div class="badge">🇦🇺 Australian Owned</div>
+                      <div class="badge">✅ PCI Compliant</div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="footer-bottom">
+              <div class="footer-disclaimer">
+                  <p><strong>Important:</strong> KoalaVault is a legal Australian competition platform. Entry is voluntary and open to Australian residents aged 18+. No purchase necessary for free entry option available. Full terms apply.</p>
+              </div>
+              <div class="footer-copyright">
+                  <p>&copy; 2025 KoalaVault Pty Ltd. All rights reserved. Australian Business Number: 12 345 678 901</p>
+                  <p class="gambling-notice">🔞 <strong>18+ Only</strong> | Play Responsibly | <a href="#help">Gambling Help: 1800 858 858</a></p>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    function setupMobileMenu() {
+        const toggle = document.getElementById('mobile-menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        toggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+            });
+        });
+    }
+
+    // Initialize mobile menu
+    setupMobileMenu();
+
+    function selectPackage(packageType) {
+      const select = document.getElementById('package-select');
+      select.value = packageType;
+      document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Set target date for countdown - 7 days, 23 hours, 45 minutes from page load
+    const targetDate = new Date().getTime() + (7 * 24 * 60 * 60 * 1000) + (23 * 60 * 60 * 1000) + (45 * 60 * 1000);
+
+    // Countdown timer function
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      // Calculate time units
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Update display elements
+      const daysElement = document.getElementById('days');
+      const hoursElement = document.getElementById('hours');
+      const minutesElement = document.getElementById('minutes');
+      const secondsElement = document.getElementById('seconds');
+
+      if (daysElement) daysElement.textContent = Math.max(0, days).toString().padStart(2, '0');
+      if (hoursElement) hoursElement.textContent = Math.max(0, hours).toString().padStart(2, '0');
+      if (minutesElement) minutesElement.textContent = Math.max(0, minutes).toString().padStart(2, '0');
+      if (secondsElement) secondsElement.textContent = Math.max(0, seconds).toString().padStart(2, '0');
+
+      // If countdown reaches zero, stop the timer
+      if (distance < 0) {
+        clearInterval(countdownInterval);
+        if (daysElement) daysElement.textContent = "00";
+        if (hoursElement) hoursElement.textContent = "00";
+        if (minutesElement) minutesElement.textContent = "00";
+        if (secondsElement) secondsElement.textContent = "00";
+      }
+    }
+
+    // Start the countdown timer
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Run immediately on page load
+
+    // Card number formatting
+    document.querySelector('input[name="card_number"]').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+      e.target.value = value;
+    });
+
+    // Expiry date formatting
+    document.querySelector('input[name="expiry"]').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length >= 2) {
+        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+      }
+      e.target.value = value;
+    });
+  </script>
+</body>
+</html>
