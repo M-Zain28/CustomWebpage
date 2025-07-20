@@ -213,11 +213,12 @@
 
         .hero-gallery {
             display: grid;
-            grid-template-columns: 1fr 1.5fr 1fr;
-            gap: 10px;
+            grid-template-columns: 1fr 1.8fr 1fr;
+            gap: 30px;
             align-items: center;
             width: 100%;
-            padding: 0 10px;
+            padding: 0 20px;
+            max-width: none;
         }
 
         .hero-image {
@@ -234,11 +235,11 @@
         }
 
         .hero-image.main {
-            aspect-ratio: 4/3;
+            aspect-ratio: 16/10;
         }
 
         .hero-image.side {
-            aspect-ratio: 4/3;
+            aspect-ratio: 4/5;
         }
 
         .hero-image img {
@@ -247,6 +248,29 @@
             object-fit: cover;
             display: block;
             border-radius: 24px;
+        }
+
+        /* Make images even bigger on large desktop screens */
+        @media (min-width: 1200px) {
+            .hero-gallery {
+                gap: 40px;
+                padding: 0 40px;
+            }
+            
+            .hero-image.main {
+                aspect-ratio: 16/9;
+            }
+            
+            .hero-image.side {
+                aspect-ratio: 3/4;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .hero-gallery {
+                gap: 60px;
+                padding: 0 60px;
+            }
         }
 
         .hero h1 {
