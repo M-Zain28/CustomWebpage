@@ -1360,12 +1360,16 @@
             }
 
             .hero-features {
-                padding-left: 2em;
+                padding-left: 0;
             }
 
             .hero-features li {
-                justify-content: flex-start;
-                text-align: left;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero-features li::before {
+                display: none;
             }
 
             .trust-rating {
