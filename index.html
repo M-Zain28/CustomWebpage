@@ -2192,6 +2192,30 @@
             });
         });
 
+        // Number Animation Function
+        function animateNumber(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16); // 60fps
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                // Format number based on target value
+                if (target >= 1000) {
+                    element.textContent = Math.floor(current).toLocaleString();
+                } else if (target % 1 !== 0) {
+                    element.textContent = current.toFixed(1);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
@@ -2202,6 +2226,18 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    
+                    // Trigger number animations for stats
+                    if (entry.target.classList.contains('stat')) {
+                        const numberElement = entry.target.querySelector('.stat-number');
+                        const target = parseFloat(numberElement.getAttribute('data-target'));
+                        
+                        // Only animate if not already animated
+                        if (!numberElement.classList.contains('animated')) {
+                            numberElement.classList.add('animated');
+                            animateNumber(numberElement, target);
+                        }
+                    }
                 }
             });
         }, observerOptions);
