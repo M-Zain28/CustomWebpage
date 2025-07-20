@@ -207,14 +207,15 @@
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 100%;
-            padding: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .hero-gallery {
             display: grid;
             grid-template-columns: 2fr 3fr 2fr;
-            gap: 40px;
+            gap: 10px;
             align-items: center;
             width: 100%;
             padding: 0 10px;
@@ -264,7 +265,7 @@
         /* Make images even bigger on large desktop screens */
         @media (min-width: 1200px) {
             .hero-gallery {
-                gap: 50px;
+                gap: 10px;
                 padding: 0 20px;
                 grid-template-columns: 2.5fr 4fr 2.5fr;
             }
@@ -280,7 +281,7 @@
 
         @media (min-width: 1600px) {
             .hero-gallery {
-                gap: 60px;
+                gap: 10px;
                 padding: 0 30px;
                 grid-template-columns: 3fr 5fr 3fr;
             }
