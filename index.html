@@ -816,6 +816,9 @@
             transition: all 0.3s ease;
             color: #006bb3;
             font-size: 20px;
+            z-index: 10;
+            pointer-events: auto;
+            position: relative;
         }
 
         .nav-btn:hover {
@@ -1666,18 +1669,18 @@
             </div>
 
             <div class="carousel-nav">
-                <button class="nav-btn" id="prevBtn">❮</button>
-                <button class="nav-btn" id="nextBtn">❯</button>
+                <button class="nav-btn" id="prevBtn" onclick="window.carouselPrevious()">❮</button>
+                <button class="nav-btn" id="nextBtn" onclick="window.carouselNext()">❯</button>
             </div>
 
             <div class="carousel-indicators" id="indicators">
-                <span class="indicator active" data-slide="0"></span>
-                <span class="indicator" data-slide="1"></span>
-                <span class="indicator" data-slide="2"></span>
-                <span class="indicator" data-slide="3"></span>
-                <span class="indicator" data-slide="4"></span>
-                <span class="indicator" data-slide="5"></span>
-                <span class="indicator" data-slide="6"></span>
+                <span class="indicator active" onclick="window.carouselGoTo(0)"></span>
+                <span class="indicator" onclick="window.carouselGoTo(1)"></span>
+                <span class="indicator" onclick="window.carouselGoTo(2)"></span>
+                <span class="indicator" onclick="window.carouselGoTo(3)"></span>
+                <span class="indicator" onclick="window.carouselGoTo(4)"></span>
+                <span class="indicator" onclick="window.carouselGoTo(5)"></span>
+                <span class="indicator" onclick="window.carouselGoTo(6)"></span>
             </div>
         </div>
     </section>
@@ -1845,19 +1848,57 @@
             }
                  }, 2000);
 
+        // Global carousel variables
+        let currentSlide = 0;
+        const totalSlides = 7;
+        let track, indicators;
+
+        // Global functions accessible from HTML onclick
+        window.carouselNext = function() {
+            console.log('Global next function called');
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarouselPosition();
+        };
+
+        window.carouselPrevious = function() {
+            console.log('Global previous function called');
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarouselPosition();
+        };
+
+        window.carouselGoTo = function(slideIndex) {
+            console.log('Global goto function called:', slideIndex);
+            currentSlide = slideIndex;
+            updateCarouselPosition();
+        };
+
+        function updateCarouselPosition() {
+            console.log('Updating to slide:', currentSlide);
+            if (track) {
+                const translateX = -currentSlide * 100;
+                track.style.transform = `translateX(${translateX}%)`;
+            }
+            
+            if (indicators) {
+                indicators.forEach((indicator, index) => {
+                    if (index === currentSlide) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+        }
+
         // Wait for page to load completely
         window.addEventListener('load', function() {
             console.log('Page loaded, initializing carousel...');
             
-            // Testimonial Carousel Variables
-            let currentSlide = 0;
-            const totalSlides = 7;
-            
             // Get elements with error checking
-            const track = document.getElementById('carouselTrack');
+            track = document.getElementById('carouselTrack');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
-            const indicators = document.querySelectorAll('.indicator');
+            indicators = document.querySelectorAll('.indicator');
             
             console.log('Track:', track);
             console.log('PrevBtn:', prevBtn);
@@ -1912,16 +1953,31 @@
                 updateCarousel();
             }
 
-            // Add click event listeners
-            nextBtn.onclick = function() {
-                console.log('Next button clicked');
+            // Add click event listeners with multiple methods
+            nextBtn.onclick = function(e) {
+                e.preventDefault();
+                console.log('Next button clicked via onclick');
                 nextSlide();
             };
 
-            prevBtn.onclick = function() {
-                console.log('Previous button clicked');
+            prevBtn.onclick = function(e) {
+                e.preventDefault();
+                console.log('Previous button clicked via onclick');
                 prevSlide();
             };
+
+            // Also try addEventListener as backup
+            nextBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Next button clicked via addEventListener');
+                nextSlide();
+            });
+
+            prevBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Previous button clicked via addEventListener');
+                prevSlide();
+            });
 
             // Add indicator click events
             indicators.forEach((indicator, index) => {
@@ -1935,10 +1991,25 @@
             // Initialize carousel
             updateCarousel();
 
-            // Auto-play carousel (optional - you can comment this out for testing)
-            setInterval(function() {
-                nextSlide();
-            }, 5000);
+            // Test button accessibility
+            console.log('Testing button styles...');
+            console.log('Next button computed style:', window.getComputedStyle(nextBtn));
+            console.log('Prev button computed style:', window.getComputedStyle(prevBtn));
+
+            // Add manual test buttons for debugging
+            nextBtn.style.border = '3px solid red';
+            prevBtn.style.border = '3px solid red';
+            
+            // Simple click test
+            setTimeout(function() {
+                console.log('Auto-testing next button click...');
+                nextBtn.click();
+            }, 2000);
+
+            // Auto-play carousel (disabled for testing)
+            // setInterval(function() {
+            //     nextSlide();
+            // }, 5000);
 
             console.log('Carousel initialized successfully');
         });
