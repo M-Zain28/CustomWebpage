@@ -1040,10 +1040,7 @@
             }
         }
 
-        /* Sticky Mobile CTA - Hidden */
-        .mobile-cta {
-            display: none;
-        }
+
 
         /* Footer Styles */
         .footer {
@@ -1582,7 +1579,10 @@
             const toggle = document.getElementById('mobile-menu-toggle');
             const mobileNav = document.getElementById('mobile-nav');
             
-            toggle.addEventListener('click', () => {
+            if (!toggle || !mobileNav) return;
+            
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation();
                 mobileNav.classList.toggle('active');
             });
 
@@ -1590,21 +1590,31 @@
             const mobileLinks = mobileNav.querySelectorAll('a');
             mobileLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
-                    // Close the menu
+                    const href = link.getAttribute('href');
+                    
+                    // Close the menu first
                     mobileNav.classList.remove('active');
                     
-                    // For external links, allow default behavior
-                    const href = link.getAttribute('href');
-                    if (href && (href.startsWith('http') || href.startsWith('/'))) {
-                        // Let the browser handle external navigation
-                        return true;
+                    // For external links (http/https), allow normal navigation
+                    if (href && href.startsWith('http')) {
+                        // Don't prevent default for external links
+                        window.location.href = href;
+                        return;
+                    }
+                    
+                    // For internal links starting with #, let smooth scrolling handle it
+                    if (href && href.startsWith('#')) {
+                        // Let the smooth scrolling code handle this
+                        return;
                     }
                 });
             });
 
             // Close mobile menu when clicking outside
             document.addEventListener('click', (e) => {
-                if (!mobileNav.contains(e.target) && !toggle.contains(e.target)) {
+                if (mobileNav.classList.contains('active') && 
+                    !mobileNav.contains(e.target) && 
+                    !toggle.contains(e.target)) {
                     mobileNav.classList.remove('active');
                 }
             });
@@ -1735,11 +1745,23 @@
             });
         }
 
+        // Debug function to check for mobile CTA
+        function debugMobileCTA() {
+            const mobileCTA = document.querySelector('.mobile-cta');
+            if (mobileCTA) {
+                console.log('WARNING: Mobile CTA still exists!', mobileCTA);
+                mobileCTA.remove(); // Force remove if found
+            } else {
+                console.log('Mobile CTA successfully removed');
+            }
+        }
+
         // Initialize
         createStars();
         setupMobileMenu();
         updateCountdown();
         initializePackages();
+        debugMobileCTA();
 
         // Add scroll animations
         const observerOptions = {
