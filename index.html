@@ -735,6 +735,7 @@
         .carousel-track {
             display: flex;
             transition: transform 0.6s ease-in-out;
+            width: 700%; /* 7 slides * 100% each */
         }
 
         .testimonial-card {
@@ -820,6 +821,10 @@
         .nav-btn:hover {
             background: #006bb3;
             color: white;
+        }
+
+        .nav-btn:active {
+            transform: scale(0.95);
         }
 
         .nav-btn:disabled {
@@ -1840,76 +1845,102 @@
             }
                  }, 2000);
 
-        // Testimonial Carousel Functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        // Wait for page to load completely
+        window.addEventListener('load', function() {
+            console.log('Page loaded, initializing carousel...');
+            
+            // Testimonial Carousel Variables
             let currentSlide = 0;
             const totalSlides = 7;
+            
+            // Get elements with error checking
             const track = document.getElementById('carouselTrack');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const indicators = document.querySelectorAll('.indicator');
+            
+            console.log('Track:', track);
+            console.log('PrevBtn:', prevBtn);
+            console.log('NextBtn:', nextBtn);
+            console.log('Indicators:', indicators);
 
-            // Check if elements exist
-            if (!track || !prevBtn || !nextBtn || indicators.length === 0) {
-                console.error('Carousel elements not found');
+            // Verify all elements exist
+            if (!track) {
+                console.error('Carousel track not found');
+                return;
+            }
+            if (!prevBtn) {
+                console.error('Previous button not found');
+                return;
+            }
+            if (!nextBtn) {
+                console.error('Next button not found');
+                return;
+            }
+            if (indicators.length === 0) {
+                console.error('Indicators not found');
                 return;
             }
 
+            // Update carousel position and indicators
             function updateCarousel() {
+                console.log('Updating carousel to slide:', currentSlide);
                 const translateX = -currentSlide * 100;
                 track.style.transform = `translateX(${translateX}%)`;
                 
                 // Update indicators
                 indicators.forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === currentSlide);
+                    if (index === currentSlide) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
                 });
             }
 
+            // Next slide function
             function nextSlide() {
+                console.log('Next slide clicked');
                 currentSlide = (currentSlide + 1) % totalSlides;
                 updateCarousel();
             }
 
+            // Previous slide function
             function prevSlide() {
+                console.log('Previous slide clicked');
                 currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
                 updateCarousel();
             }
 
-            // Event listeners
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
+            // Add click event listeners
+            nextBtn.onclick = function() {
+                console.log('Next button clicked');
+                nextSlide();
+            };
 
-            // Indicator clicks
+            prevBtn.onclick = function() {
+                console.log('Previous button clicked');
+                prevSlide();
+            };
+
+            // Add indicator click events
             indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => {
+                indicator.onclick = function() {
+                    console.log('Indicator clicked:', index);
                     currentSlide = index;
                     updateCarousel();
-                });
+                };
             });
 
-            // Auto-play carousel
-            setInterval(nextSlide, 5000);
+            // Initialize carousel
+            updateCarousel();
 
-            // Touch/swipe support for mobile
-            let startX = 0;
-            let endX = 0;
+            // Auto-play carousel (optional - you can comment this out for testing)
+            setInterval(function() {
+                nextSlide();
+            }, 5000);
 
-            track.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-            });
-
-            track.addEventListener('touchend', (e) => {
-                endX = e.changedTouches[0].clientX;
-                const diff = startX - endX;
-                
-                if (Math.abs(diff) > 50) { // Minimum swipe distance
-                    if (diff > 0) {
-                        nextSlide(); // Swipe left - next slide
-                    } else {
-                        prevSlide(); // Swipe right - previous slide
-                    }
-                }
-            });
+            console.log('Carousel initialized successfully');
         });
     </script>
 </body>
