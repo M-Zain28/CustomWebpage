@@ -847,10 +847,16 @@
         }
 
         .control-btn:hover {
-            background: #006bb3;
-            color: white;
+            background: #006bb3 !important;
+            color: white !important;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 107, 179, 0.3);
+        }
+
+        .control-btn:active {
+            background: #005494 !important;
+            color: white !important;
+            transform: translateY(0px);
         }
 
         .dots-container {
@@ -1928,14 +1934,24 @@
                 });
             }
 
-            // Testimonial Carousel
+            // Testimonial Carousel - Fixed Version
             const slides = document.querySelectorAll('.testimonial-slide');
             const dotsContainer = document.querySelector('.dots-container');
             const prevBtn = document.querySelector('.prev-btn');
             const nextBtn = document.querySelector('.next-btn');
             let currentSlide = 0;
 
+            console.log('Testimonial Setup:', {
+                slides: slides.length,
+                dotsContainer: !!dotsContainer,
+                prevBtn: !!prevBtn,
+                nextBtn: !!nextBtn
+            });
+
             if (slides.length > 0 && dotsContainer && prevBtn && nextBtn) {
+                // Clear existing dots first
+                dotsContainer.innerHTML = '';
+                
                 // Create dots
                 slides.forEach((_, index) => {
                     const dot = document.createElement('span');
@@ -1944,14 +1960,15 @@
                         dot.classList.add('active');
                     }
                     dot.addEventListener('click', () => {
+                        console.log('Dot clicked:', index);
                         showSlide(index);
                     });
                     dotsContainer.appendChild(dot);
                 });
 
-                const dots = document.querySelectorAll('.dot');
-
                 function showSlide(index) {
+                    console.log('showSlide called with index:', index, 'current:', currentSlide);
+                    
                     // Ensure index wraps around
                     if (index >= slides.length) {
                         currentSlide = 0;
@@ -1961,40 +1978,54 @@
                         currentSlide = index;
                     }
 
+                    console.log('Setting slide to:', currentSlide);
+
+                    // Update slides
                     slides.forEach((slide, i) => {
+                        slide.classList.remove('active');
+                        slide.setAttribute('aria-hidden', 'true');
                         if (i === currentSlide) {
                             slide.classList.add('active');
                             slide.setAttribute('aria-hidden', 'false');
-                        } else {
-                            slide.classList.remove('active');
-                            slide.setAttribute('aria-hidden', 'true');
+                            console.log('Activated slide:', i);
                         }
                     });
 
+                    // Update dots (query them fresh each time)
+                    const dots = dotsContainer.querySelectorAll('.dot');
                     dots.forEach((dot, i) => {
+                        dot.classList.remove('active');
                         if (i === currentSlide) {
                             dot.classList.add('active');
-                        } else {
-                            dot.classList.remove('active');
                         }
                     });
                 }
 
-                prevBtn.addEventListener('click', () => {
+                // Add event listeners with debugging
+                prevBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    console.log('Previous button clicked');
                     showSlide(currentSlide - 1);
                 });
 
-                nextBtn.addEventListener('click', () => {
+                nextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    console.log('Next button clicked');
                     showSlide(currentSlide + 1);
                 });
 
                 // Initialize the first slide
-                showSlide(currentSlide);
+                console.log('Initializing first slide');
+                showSlide(0);
 
                 // Auto-play testimonials every 6 seconds
                 setInterval(() => {
                     showSlide(currentSlide + 1);
                 }, 6000);
+
+                console.log('Testimonial carousel initialized successfully');
+            } else {
+                console.error('Testimonial carousel setup failed - missing elements');
             }
 
             // Stats Animation - Enhanced for our format
