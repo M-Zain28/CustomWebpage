@@ -235,16 +235,18 @@
         }
 
         .hero-image.main {
-            aspect-ratio: 16/10;
+            aspect-ratio: 3/2;
+            min-height: 600px;
         }
 
         .hero-image.side {
-            aspect-ratio: 4/5;
+            aspect-ratio: 3/4;
+            min-height: 500px;
         }
 
         .hero-image img {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
             display: block;
             border-radius: 24px;
@@ -258,11 +260,13 @@
             }
             
             .hero-image.main {
-                aspect-ratio: 16/9;
+                aspect-ratio: 3/2;
+                min-height: 700px;
             }
             
             .hero-image.side {
                 aspect-ratio: 3/4;
+                min-height: 600px;
             }
         }
 
@@ -270,6 +274,14 @@
             .hero-gallery {
                 gap: 60px;
                 padding: 0 60px;
+            }
+            
+            .hero-image.main {
+                min-height: 800px;
+            }
+            
+            .hero-image.side {
+                min-height: 700px;
             }
         }
 
