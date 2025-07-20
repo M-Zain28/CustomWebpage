@@ -1723,18 +1723,18 @@
                 </div>
             </div>
 
-            <div class="carousel-controls">
-                <button class="control-btn" onclick="window.prevTestimonial()">❮</button>
+                         <div class="carousel-controls">
+                <button class="control-btn" onclick="prevTestimonial()" id="prevTestimonialBtn">❮</button>
                 <div class="dots-container">
-                    <span class="dot active" onclick="window.goToTestimonial(0)"></span>
-                    <span class="dot" onclick="window.goToTestimonial(1)"></span>
-                    <span class="dot" onclick="window.goToTestimonial(2)"></span>
-                    <span class="dot" onclick="window.goToTestimonial(3)"></span>
-                    <span class="dot" onclick="window.goToTestimonial(4)"></span>
-                    <span class="dot" onclick="window.goToTestimonial(5)"></span>
-                    <span class="dot" onclick="window.goToTestimonial(6)"></span>
+                    <span class="dot active" onclick="goToTestimonial(0)"></span>
+                    <span class="dot" onclick="goToTestimonial(1)"></span>
+                    <span class="dot" onclick="goToTestimonial(2)"></span>
+                    <span class="dot" onclick="goToTestimonial(3)"></span>
+                    <span class="dot" onclick="goToTestimonial(4)"></span>
+                    <span class="dot" onclick="goToTestimonial(5)"></span>
+                    <span class="dot" onclick="goToTestimonial(6)"></span>
                 </div>
-                <button class="control-btn" onclick="window.nextTestimonial()">❯</button>
+                <button class="control-btn" onclick="nextTestimonial()" id="nextTestimonialBtn">❯</button>
             </div>
         </div>
     </section>
@@ -1902,67 +1902,109 @@
             }
                  }, 2000);
 
-        // Testimonial Carousel - Simple & Reliable
-        let currentTestimonial = 0;
-        const totalTestimonials = 7;
+        // Testimonial Carousel - Fixed Version
+        var currentTestimonial = 0;
+        var totalTestimonials = 7;
 
-        // Global functions for testimonial navigation
-        window.nextTestimonial = function() {
-            console.log('Next testimonial');
+        // Define functions immediately - no wait for DOM
+        function nextTestimonial() {
+            console.log('Next testimonial function called');
             currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
             updateTestimonialDisplay();
-        };
-
-        window.prevTestimonial = function() {
-            console.log('Previous testimonial');
-            currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
-            updateTestimonialDisplay();
-        };
-
-        window.goToTestimonial = function(index) {
-            console.log('Go to testimonial:', index);
-            currentTestimonial = index;
-            updateTestimonialDisplay();
-        };
-
-        function updateTestimonialDisplay() {
-            // Update slides
-            const slides = document.querySelectorAll('.testimonial-slide');
-            slides.forEach((slide, index) => {
-                if (index === currentTestimonial) {
-                    slide.classList.add('active');
-                } else {
-                    slide.classList.remove('active');
-                }
-            });
-
-            // Update dots
-            const dots = document.querySelectorAll('.dot');
-            dots.forEach((dot, index) => {
-                if (index === currentTestimonial) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-
-            console.log('Updated to testimonial:', currentTestimonial);
         }
 
+        function prevTestimonial() {
+            console.log('Previous testimonial function called');
+            currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+            updateTestimonialDisplay();
+        }
+
+        function goToTestimonial(index) {
+            console.log('Go to testimonial function called:', index);
+            currentTestimonial = index;
+            updateTestimonialDisplay();
+        }
+
+        function updateTestimonialDisplay() {
+            console.log('Updating testimonial display to:', currentTestimonial);
+            
+            // Update slides
+            var slides = document.querySelectorAll('.testimonial-slide');
+            console.log('Found slides:', slides.length);
+            
+            for (var i = 0; i < slides.length; i++) {
+                if (i === currentTestimonial) {
+                    slides[i].classList.add('active');
+                    console.log('Activated slide:', i);
+                } else {
+                    slides[i].classList.remove('active');
+                }
+            }
+
+            // Update dots
+            var dots = document.querySelectorAll('.dot');
+            console.log('Found dots:', dots.length);
+            
+            for (var i = 0; i < dots.length; i++) {
+                if (i === currentTestimonial) {
+                    dots[i].classList.add('active');
+                } else {
+                    dots[i].classList.remove('active');
+                }
+            }
+        }
+
+        // Make functions globally available
+        window.nextTestimonial = nextTestimonial;
+        window.prevTestimonial = prevTestimonial;
+        window.goToTestimonial = goToTestimonial;
+
         // Wait for page to load completely
+        // Test functions immediately
+        console.log('Testing functions on script load...');
+        setTimeout(function() {
+            console.log('Testing nextTestimonial function...');
+            if (typeof window.nextTestimonial === 'function') {
+                console.log('Function exists, calling it...');
+                window.nextTestimonial();
+            } else {
+                console.error('nextTestimonial function not found!');
+            }
+        }, 1000);
+
         // Initialize testimonial carousel when page loads
         window.addEventListener('load', function() {
             console.log('Testimonial carousel initialized');
             
+            // Add direct event listeners as backup
+            var nextBtn = document.querySelector('.control-btn:last-child');
+            var prevBtn = document.querySelector('.control-btn:first-child');
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    console.log('Next button clicked via event listener');
+                    nextTestimonial();
+                });
+                console.log('Next button event listener added');
+            }
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function() {
+                    console.log('Prev button clicked via event listener');
+                    prevTestimonial();
+                });
+                console.log('Prev button event listener added');
+            }
+            
             // Auto-play testimonials every 6 seconds
             setInterval(function() {
-                window.nextTestimonial();
+                nextTestimonial();
             }, 6000);
             
             // Test after 2 seconds
             setTimeout(function() {
                 console.log('Auto-testing testimonial navigation...');
-                window.nextTestimonial();
+                nextTestimonial();
             }, 2000);
         });
     </script>
