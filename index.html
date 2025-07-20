@@ -231,6 +231,27 @@
             padding: 0 20px;
         }
 
+        .hero-single-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 60px 0;
+        }
+
+        .hero-main-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+        }
+
+        /* Business Gallery Section */
+        .business-gallery {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
         .hero-gallery {
             display: grid;
             grid-template-columns: 2fr 3fr 2fr;
@@ -1237,6 +1258,14 @@
                 padding: 0 15px;
             }
 
+            .hero-single-image {
+                margin: 40px 0;
+            }
+
+            .hero-main-image {
+                max-width: 100%;
+            }
+
             .hero-gallery {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -1565,16 +1594,8 @@
                     </div>
                 </div>
                 <div class="hero-image-section">
-                    <div class="hero-gallery">
-                        <div class="hero-image side">
-                            <img src="https://images.pexels.com/photos/7857557/pexels-photo-7857557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Woman standing among cardboard boxes and writing on paper">
-                        </div>
-                        <div class="hero-image main">
-                            <img src="https://images.pexels.com/photos/7857585/pexels-photo-7857585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Beautiful women smiling">
-                        </div>
-                        <div class="hero-image side">
-                            <img src="https://images.pexels.com/photos/7857551/pexels-photo-7857551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Business woman using a gray laptop">
-                        </div>
+                    <div class="hero-single-image">
+                        <img src="https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Man sitting on chair beside table" class="hero-main-image">
                     </div>
                 </div>
             </div>
@@ -1919,6 +1940,26 @@
                     <!-- Dots will be created dynamically by JavaScript -->
                 </div>
                 <button class="control-btn next-btn">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="business-gallery">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Real Business Success Stories</h2>
+                <p>See the faces behind the businesses we've helped grow and succeed.</p>
+            </div>
+            <div class="hero-gallery">
+                <div class="hero-image side">
+                    <img src="https://images.pexels.com/photos/7857557/pexels-photo-7857557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Woman standing among cardboard boxes and writing on paper">
+                </div>
+                <div class="hero-image main">
+                    <img src="https://images.pexels.com/photos/7857585/pexels-photo-7857585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Beautiful women smiling">
+                </div>
+                <div class="hero-image side">
+                    <img src="https://images.pexels.com/photos/7857551/pexels-photo-7857551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Business woman using a gray laptop">
+                </div>
             </div>
         </div>
     </section>
