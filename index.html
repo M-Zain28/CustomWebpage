@@ -179,11 +179,11 @@
 
         /* Hero Section */
         .hero {
-            padding: 140px 0 80px;
-            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            padding: 140px 0 120px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             position: relative;
             color: #1a1a1a;
-            min-height: 100vh;
+            min-height: 90vh;
         }
 
         .hero-container {
@@ -221,11 +221,11 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 30px;
-            line-height: 1.2;
+            font-size: 3.8rem;
+            font-weight: 800;
+            color: #006bb3;
+            margin-bottom: 40px;
+            line-height: 1.1;
         }
 
         .hero-features {
@@ -245,7 +245,7 @@
 
         .hero-features li::before {
             content: '✓';
-            color: #00d084;
+            color: #f1b719;
             font-weight: bold;
             margin-right: 12px;
             font-size: 1.2rem;
@@ -258,29 +258,31 @@
         }
 
         .btn-primary {
-            background: #00d084;
+            background: #f1b719;
             color: white;
-            padding: 16px 32px;
+            padding: 18px 36px;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-block;
+            box-shadow: 0 4px 15px rgba(241, 183, 25, 0.3);
         }
 
         .btn-primary:hover {
-            background: #00b86b;
-            transform: translateY(-1px);
+            background: #e0a516;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(241, 183, 25, 0.4);
         }
 
         .btn-secondary {
             background: transparent;
-            color: #4a5568;
-            padding: 16px 32px;
-            border: 2px solid #e2e8f0;
-            border-radius: 6px;
+            color: #006bb3;
+            padding: 18px 36px;
+            border: 2px solid #006bb3;
+            border-radius: 8px;
             font-size: 16px;
             font-weight: 600;
             text-decoration: none;
@@ -289,8 +291,45 @@
         }
 
         .btn-secondary:hover {
-            border-color: #00d084;
-            color: #00d084;
+            background: #006bb3;
+            color: white;
+        }
+
+        .hero-trust {
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .trust-text {
+            color: #a6a9ab;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .trust-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stars {
+            color: #f1b719;
+            font-size: 16px;
+        }
+
+        .rating-text {
+            color: #a6a9ab;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .trustpilot {
+            color: #a6a9ab;
+            font-size: 14px;
+            font-weight: 500;
         }
 
         .cta-form {
@@ -990,6 +1029,17 @@
                 text-align: center;
             }
 
+            .hero-trust {
+                justify-content: center;
+                text-align: center;
+                margin-top: 40px;
+            }
+
+            .trust-rating {
+                flex-direction: column;
+                gap: 4px;
+            }
+
             .final-cta {
                 background-attachment: scroll;
             }
@@ -1160,6 +1210,14 @@
                     <div class="hero-buttons">
                         <a href="#apply" class="btn-primary">Get started</a>
                         <a href="#learn-more" class="btn-secondary">Products & callbacks</a>
+                    </div>
+                    <div class="hero-trust">
+                        <span class="trust-text">Our customers say</span>
+                        <div class="trust-rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-text">4.8 out of 5 stars on 175+ reviews</span>
+                        </div>
+                        <span class="trustpilot">🛡️ Trustpilot</span>
                     </div>
                 </div>
                 <div class="hero-image-section">
