@@ -744,7 +744,7 @@
         .stat-number {
             font-size: 3.5rem;
             font-weight: 800;
-            color: #006bb3;
+            color: #f1b719;
             margin-bottom: 8px;
             line-height: 1;
             display: block;
@@ -1474,12 +1474,31 @@
                     statsObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.1 });
 
         const statsSection = document.querySelector('.stats');
         if (statsSection) {
             statsObserver.observe(statsSection);
         }
+
+        // Fallback: Also trigger on page load after a delay
+        setTimeout(() => {
+            const statsSection = document.querySelector('.stats');
+            if (statsSection) {
+                const statNumbers = statsSection.querySelectorAll('.stat-number');
+                if (statNumbers.length > 0) {
+                    // Check if animation hasn't started yet
+                    const firstNumber = statNumbers[0];
+                    if (firstNumber.textContent === '0') {
+                        statNumbers.forEach(number => {
+                            const target = parseFloat(number.getAttribute('data-target'));
+                            animateCounter(number, target);
+                            number.closest('.stat').classList.add('animate');
+                        });
+                    }
+                }
+            }
+        }, 2000);
     </script>
 </body>
 </html>
