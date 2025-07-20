@@ -261,6 +261,83 @@
             padding: 0 10px;
         }
 
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: #006bb3;
+        }
+
+        .faq-question h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0;
+            line-height: 1.4;
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #006bb3;
+            transition: transform 0.3s ease;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 0 0 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 0 20px 0;
+        }
+
+        .faq-answer p {
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 1rem;
+        }
+
         .hero-image {
             position: relative;
             border-radius: 24px;
@@ -1980,6 +2057,68 @@
         </div>
     </section>
 
+    <section class="faq">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Frequently Asked Questions</h2>
+                <p>Get answers to the most common questions about our business funding solutions.</p>
+            </div>
+            <div class="faq-container">
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is the minimum credit score required for approval?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We work with businesses that have credit scores as low as 550. However, higher credit scores may qualify for better rates and terms. We evaluate each application holistically, considering factors beyond just credit score including business performance and cash flow.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How quickly can I receive funding after approval?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Once approved, most funding is disbursed within 24-48 hours. For urgent needs, we offer same-day funding options. The exact timing depends on your bank's processing times and the funding product selected.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do I need collateral or personal guarantees?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Many of our funding options are unsecured, meaning no collateral is required. However, secured options with collateral often come with better rates and terms. Personal guarantees may be required depending on the loan amount and business structure.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What documents do I need to apply?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Typically, you'll need 3-6 months of bank statements, basic business information, and identification. Additional documents may include tax returns, profit & loss statements, or business licenses depending on the funding amount and type.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Are there any industry restrictions?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We fund most industries including retail, hospitality, healthcare, professional services, and more. Some high-risk industries may have limited options or require additional documentation. Contact us to discuss your specific industry requirements.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section class="final-cta">
         <div class="container">
             <div class="fade-in">
@@ -2026,6 +2165,33 @@
     </footer>
 
     <script>
+        // FAQ Accordion Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    if (isActive) {
+                        item.classList.remove('active');
+                    } else {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
