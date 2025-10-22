@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KoalaVault - Win $100,000 Cash | Australian Giveaway</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            background: #000000;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(45deg, #D72638, #FF4757);
+            z-index: 999;
+            overflow: hidden;
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 15px rgba(215, 38, 56, 0.4);
+        }
+
+        .announcement-content {
+            display: flex;
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        .announcement-text {
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-right: 4rem;
+            display: inline-block;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            z-index: 1000;
+            padding: 0;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            height: 80px;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #FFD700;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .koala-emoji {
+            font-size: 2.2rem;
+            animation: float 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.5rem 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding: 0.8rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #FFD700, #FFF700);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta-button {
+            background: linear-gradient(135deg, #D72638, #FF4757, #D72638);
+            background-size: 200% 200%;
+            color: #FFFFFF;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(215, 38, 56, 0.4);
+            transition: all 0.4s ease;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .header-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .header-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(215, 38, 56, 0.6);
+            background-position: 100% 0;
+        }
+
+        .header-cta-button:hover::before {
+            left: 100%;
+        }
+
+        .header-cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            padding: 1rem 0;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav ul li {
+            text-align: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .mobile-nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .mobile-nav ul li a:hover {
+            color: #FFD700;
+        }
+
+        .mobile-nav-cta {
+            background: linear-gradient(45deg, #D72638, #FF4757) !important;
+            color: #FFFFFF !important;
+            padding: 0.8rem 1.5rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            border-radius: 25px !important;
+            margin: 0.5rem 1rem !important;
+            display: inline-block !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #000000 0%, #1C1C1C 100%);
+            z-index: 2;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FFD700, #FFF700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+            to { text-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.4); }
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .countdown-item {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .countdown-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #FFD700;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: #FFFFFF;
+            text-transform: uppercase;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #D72638, #FF4757);
+            color: #FFFFFF;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(215, 38, 56, 0.4);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(215, 38, 56, 0.6);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Progress Bar Section */
+        .progress-section {
+            background: #000000;
+            padding: 4rem 0;
+            position: relative;
+            z-index: 2;
+            margin: 0;
+        }
+
+        .progress-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .progress-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FFD700;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .progress-subtitle {
+            font-size: 1.3rem;
+            color: #FFFFFF;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .progress-alert {
+            margin-bottom: 3rem;
+            animation: pulse 2s infinite;
+        }
+
+        .alert-text {
+            background: linear-gradient(45deg, #D72638, #FF4757);
+            color: #FFFFFF;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(215, 38, 56, 0.4);
+            display: inline-block;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .progress-bar-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FFD700, #FFF700, #FFD700);
+            border-radius: 10px;
+            width: 80%;
+            position: relative;
+            animation: progressFill 2s ease-out;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .progress-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes progressFill {
+            from { width: 0%; }
+            to { width: 80%; }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .progress-percentage {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .progress-label {
+            color: #CCCCCC;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+            z-index: 2;
+            background: #000000;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: #000000;
+            margin: 0;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        /* Package Section Styles */
+        .packages-section {
+            padding: 6rem 0;
+            background: #000000;
+            width: 100%;
+            margin: 0;
+        }
+
+        .packages-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        /* Package Card Styles */
+        .package-card {
+            background: #000000;
+            border: 2px solid #333;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, #FFD700, transparent 30%);
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .package-card:hover::before {
+            opacity: 0.1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFD700;
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2);
+        }
+
+        .package-card.featured {
+            border-color: #FFD700;
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Bonus Badge Styles */
+        .bonus-badge {
+            background: linear-gradient(135deg, #D72638 0%, #ff1744 50%, #D72638 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .bonus-badge.popular {
+            background: linear-gradient(135deg, #FFD700 0%, #FFD700 100%);
+            color: #000000;
+        }
+
+        /* Package Title */
+        .package-title {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+
+        /* Package Pricing */
+        .package-price-container {
+            margin-bottom: 15px;
+        }
+
+        .original-price {
+            font-size: 1.2rem;
+            color: #888;
+            text-decoration: line-through;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .package-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .package-billing {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        /* Package Features */
+        .package-features {
+            list-style: none;
+            margin-bottom: 40px;
+            padding: 0;
+        }
+
+        .package-features li {
+            padding: 8px 0;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-align: left;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Package Button */
+        .package-button {
+            background: linear-gradient(135deg, #D72638 0%, #ff1744 50%, #D72638 100%);
+            color: #FFFFFF;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .package-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(215, 38, 56, 0.4);
+        }
+
+        .package-button:active {
+            transform: translateY(0);
+        }
+
+        /* Selected package state */
+        .package-card.selected {
+            border-color: #FFD700;
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .package-card.selected::before {
+            opacity: 0.2;
+        }
+
+        /* Animation for package selection */
+        @keyframes packageSelect {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .package-card.selected {
+            animation: packageSelect 0.3s ease-in-out;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: #000000;
+            text-align: center;
+            margin: 0;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .trust-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .trust-icon {
+            font-size: 3rem;
+            color: #FFD700;
+        }
+
+        .trust-text {
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        /* Winners */
+        .winners {
+            background: #000000;
+            margin: 0;
+        }
+
+        .winner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .winner-card {
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .winner-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .winner-name {
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+        }
+
+        .winner-quote {
+            font-style: italic;
+            color: #CCCCCC;
+            font-size: 0.9rem;
+        }
+
+        /* FAQ */
+        .faq {
+            background: #000000;
+            margin: 0;
+        }
+
+        .faq-item {
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+        }
+
+        .faq-question {
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            padding: 1.5rem;
+            width: 100%;
+            text-align: left;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: #FFD700;
+        }
+
+        .faq-question:active,
+        .faq-question:focus {
+            background: rgba(255, 215, 0, 0.15);
+            color: #FFD700;
+            outline: none;
+        }
+
+        .faq-item.active {
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+        }
+
+        .faq-item.active .faq-question {
+            background: rgba(255, 215, 0, 0.1);
+            color: #FFD700;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #CCCCCC;
+            display: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.8rem 1.5rem;
+                height: 70px;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .koala-emoji {
+                font-size: 2rem;
+            }
+
+            .nav-center {
+                display: none;
+            }
+
+            .header-cta-button {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+                font-size: 1.8rem;
+                padding: 0.5rem;
+            }
+
+            .announcement-bar {
+                top: 70px;
+            }
+
+            .announcement-text {
+                font-size: 1rem;
+            }
+
+            .hero {
+                margin-top: 50px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .countdown {
+                gap: 0.5rem;
+            }
+
+            .countdown-item {
+                padding: 0.5rem;
+                min-width: 60px;
+            }
+
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+
+            .trust-badges {
+                gap: 2rem;
+            }
+
+            .steps, .packages-grid, .winner-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-title {
+                font-size: 1.8rem;
+            }
+
+            .progress-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .alert-text {
+                font-size: 1rem;
+                padding: 0.6rem 1.5rem;
+            }
+
+            .progress-bar-container {
+                padding: 1.5rem;
+            }
+
+            .progress-info {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .progress-percentage {
+                font-size: 1.5rem;
+            }
+
+            /* Package Mobile Styles */
+            .packages-container {
+                padding: 0 1rem;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .package-card {
+                padding: 30px 20px;
+            }
+
+            .packages-section {
+                padding: 4rem 0;
+            }
+
+            .package-features li {
+                justify-content: flex-start;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .package-card {
+                padding: 25px 15px;
+            }
+            
+            .package-title {
+                font-size: 1.5rem;
+            }
+            
+            .package-price {
+                font-size: 2.5rem;
+            }
+            
+            .bonus-badge {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            
+            .package-features li {
+                font-size: 0.9rem;
+                padding: 6px 0;
+            }
+        }
+
+
+
+        /* Footer Styles */
+        .footer {
+            background: #000000;
+            border-top: 2px solid #FFD700;
+            padding: 3rem 0 1rem;
+            margin: 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: #FFD700;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo .koala-emoji {
+            font-size: 1.8rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .footer-description {
+            color: #CCCCCC;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #CCCCCC;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #FFD700;
+        }
+
+        .footer-section ul li:not(:has(a)) {
+            color: #CCCCCC;
+        }
+
+        .trust-badges-footer {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .trust-badges-footer .badge {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: #FFD700;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .footer-disclaimer {
+            background: rgba(215, 38, 56, 0.1);
+            border: 1px solid rgba(215, 38, 56, 0.3);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-disclaimer p {
+            color: #FFFFFF;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .footer-copyright {
+            color: #888888;
+            font-size: 0.8rem;
+        }
+
+        .footer-copyright p {
+            margin-bottom: 0.5rem;
+        }
+
+        .gambling-notice {
+            font-weight: 600;
+            color: #D72638 !important;
+        }
+
+        .gambling-notice a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        .gambling-notice a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Mobile Responsive */
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .trust-badges-footer {
+                align-items: center;
+            }
+
+            .footer-disclaimer {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Stars -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="https://koalavault.com/KoalaVault/" class="logo">
+                <span class="koala-emoji">🐨</span>
+                KoalaVault
+            </a>
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="https://koalavault.com/KoalaVault/">Home</a></li>
+                    <li><a href="https://koalavault.com/KoalaVault/about/">About</a></li>
+                    <li><a href="https://koalavault.com/KoalaVault/current-giveways/">Current Giveaways</a></li>
+                </ul>
+            </div>
+            <a href="https://koalavault.com/KoalaVault/current-giveways/" class="header-cta-button">Enter Now</a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+        </nav>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="https://koalavault.com/KoalaVault/">Home</a></li>
+                <li><a href="https://koalavault.com/KoalaVault/about/">About</a></li>
+                <li><a href="https://koalavault.com/KoalaVault/current-giveways/">Current Giveaways</a></li>
+                <li><a href="https://koalavault.com/KoalaVault/current-giveways/" class="mobile-nav-cta">Enter Now</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-content">
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+            <span class="announcement-text">PAY $0 UNTIL WE REACH 3K MEMBERS!</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>$100,000 to One Lucky Aussie</h1>
+            <h2>Plus $10,000 Every Weekday – Start Winning Today!</h2>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">7</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">12</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">34</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">56</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+
+            <a href="#bundles" class="cta-button">💰 Enter Now to Win $100,000!</a>
+        </div>
+    </section>
+
+    <!-- Progress Bar Section -->
+    <section class="progress-section">
+        <div class="container">
+            <div class="progress-content">
+                <h3 class="progress-title">Up to 500 Bonus Entries – Pay $0</h3>
+                <p class="progress-subtitle">Until $10,000 Giveaway Every Weekday at 3K Members.</p>
+                <div class="progress-alert">
+                    <span class="alert-text">SPOTS ARE DISAPPEARING FAST</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="80"></div>
+                        <div class="progress-glow"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span class="progress-percentage">80%</span>
+                        <span class="progress-label">Progress to 3k members</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">📦</div>
+                    <h3>Step 1: Choose a Bundle</h3>
+                    <p>Select your preferred entry bundle - more entries means better chances to win!</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🎯</div>
+                    <h3>Step 2: Enter the Draw</h3>
+                    <p>Complete your secure payment and get instant confirmation of your entries.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🏆</div>
+                    <h3>Step 3: Win Big!</h3>
+                    <p>Sit back and wait for the draw - you could be our next big winner!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="bundles" class="packages-section">
+        <div class="packages-container">
+            <h2 class="section-title">Pick Your Prize Bundle</h2>
+            <div class="packages-grid">
+                <!-- Standard Package -->
+                <div class="package-card">
+                    <div class="bonus-badge">50 bonus entries</div>
+                    <h3 class="package-title">Standard</h3>
+                    <div class="package-price-container">
+                        <span class="original-price">$99</span>
+                        <div class="package-price">$0</div>
+                    </div>
+                    <div class="package-billing">$99 Billed Monthly when we reach 3,000 members (cancel anytime)</div>
+                    <ul class="package-features">
+                        <li>Earn 4 FREE ACCUMULATING entries every month</li>
+                        <li>Earn 4,000 ACCUMULATING points every month</li>
+                        <li>Automatic entry into all current and future giveaways</li>
+                        <li>Chance to win $10,000 Every Single Weekday (at 3k members)</li>
+                        <li>Redeem points for luxury experiences like (cars, holiday getaways, yachts + more) at NO EXTRA COST</li>
+                    </ul>
+                    <button class="package-button" onclick="selectPackage('standard')">SELECT STANDARD</button>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="package-card featured">
+                    <div class="bonus-badge popular">200 bonus entries</div>
+                    <h3 class="package-title">Premium</h3>
+                    <div class="package-price-container">
+                        <span class="original-price">$199</span>
+                        <div class="package-price">$0</div>
+                    </div>
+                    <div class="package-billing">$199 Billed Monthly when we reach 3,000 members (cancel anytime)</div>
+                    <ul class="package-features">
+                        <li>Earn 12 FREE ACCUMULATING entries every month</li>
+                        <li>Earn 12,000 ACCUMULATING points every month</li>
+                        <li>Automatic entry into all current and future giveaways</li>
+                        <li>Chance to win $10,000 Every Single Weekday (at 3k members)</li>
+                        <li>Redeem points for luxury experiences like (cars, holiday getaways, yachts + more) at NO EXTRA COST</li>
+                    </ul>
+                    <button class="package-button" onclick="selectPackage('premium')">SELECT PREMIUM</button>
+                </div>
+
+                <!-- Platinum Package -->
+                <div class="package-card">
+                    <div class="bonus-badge">500 bonus entries</div>
+                    <h3 class="package-title">Platinum</h3>
+                    <div class="package-price-container">
+                        <span class="original-price">$399</span>
+                        <div class="package-price">$0</div>
+                    </div>
+                    <div class="package-billing">$399 Billed Monthly when we reach 3,000 members (cancel anytime)</div>
+                    <ul class="package-features">
+                        <li>Earn 40 FREE ACCUMULATING entries every month</li>
+                        <li>Earn 40,000 ACCUMULATING points every month</li>
+                        <li>Automatic entry into all current and future giveaways</li>
+                        <li>Chance to win $10,000 Every Single Weekday (at 3k members)</li>
+                        <li>Redeem points for luxury experiences like (cars, holiday getaways, yachts + more) at NO EXTRA COST</li>
+                    </ul>
+                    <button class="package-button" onclick="selectPackage('platinum')">SELECT PLATINUM</button>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; color: #FFD700; font-weight: 600;">
+                🔒 You can cancel your subscription at any time - no hidden fees
+            </p>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="section trust-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose KoalaVault</h2>
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <div class="trust-icon">🔐</div>
+                    <div class="trust-text">Secure Payments<br>via Stripe</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-icon">🇦🇺</div>
+                    <div class="trust-text">Real Australian<br>Winners</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-icon">⚡</div>
+                    <div class="trust-text">Instant Entry<br>Confirmation</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-icon">🎧</div>
+                    <div class="trust-text">24/7 Customer<br>Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Winners Section -->
+    <section id="winners" class="section winners">
+        <div class="container">
+            <h2 class="section-title">Real Aussies. Real Winners.</h2>
+            <div class="winner-grid">
+                <div class="winner-card">
+                    <div class="winner-amount">$25,000</div>
+                    <div class="winner-name">Sarah M. - Brisbane</div>
+                    <div class="winner-quote">"Can't believe I won! Thank you KoalaVault - this has changed my life!"</div>
+                </div>
+                <div class="winner-card">
+                    <div class="winner-amount">$10,000</div>
+                    <div class="winner-name">Michael T. - Sydney</div>
+                    <div class="winner-quote">"Easiest money I've ever made! The process was so simple and genuine."</div>
+                </div>
+                <div class="winner-card">
+                    <div class="winner-amount">$15,000</div>
+                    <div class="winner-name">Emma K. - Melbourne</div>
+                    <div class="winner-quote">"I was skeptical at first, but KoalaVault delivered exactly as promised!"</div>
+                </div>
+                <div class="winner-card">
+                    <div class="winner-amount">$50,000</div>
+                    <div class="winner-name">James L. - Perth</div>
+                    <div class="winner-quote">"This platform is legit! Fast, secure, and I actually won big!"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <button class="faq-question">How do I enter the giveaway?</button>
+                <div class="faq-answer">
+                    Simply choose your preferred bundle, complete the secure payment process, and you'll receive instant confirmation of your entries. It's that easy!
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Is this legit and legal?</button>
+                <div class="faq-answer">
+                    Absolutely! KoalaVault is a fully licensed Australian business. All our giveaways comply with Australian gambling and competition laws.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How are winners chosen?</button>
+                <div class="faq-answer">
+                    Winners are selected through a completely random draw system, verified by independent auditors to ensure fairness and transparency.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I cancel my subscription?</button>
+                <div class="faq-answer">
+                    Yes! You can cancel your subscription at any time through your account dashboard or by contacting our support team. No hidden fees or penalties.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">When will I know if I've won?</button>
+                <div class="faq-answer">
+                    Winners are contacted immediately after each draw via email and phone. All winners are also announced on our social media channels.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="koala-emoji">🐨</span>
+                        <span>KoalaVault</span>
+                    </div>
+                    <p class="footer-description">
+                        Australia's premier cash giveaway platform. Join thousands of Aussies who trust KoalaVault for their chance to win life-changing prizes.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#bundles">Entry Bundles</a></li>
+                        <li><a href="#winners">Recent Winners</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#terms">Terms & Conditions</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#disclaimer">Competition Disclaimer</a></li>
+                        <li><a href="#cancel">Cancellation Policy</a></li>
+                        <li><a href="#responsible">Responsible Gaming</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li>📧 support@koalavault.com.au</li>
+                        <li>📞 1300 KOALA (562 521)</li>
+                        <li>🕒 24/7 Support Available</li>
+                        <li>💬 Live Chat (9AM - 9PM AEST)</li>
+                    </ul>
+                    <div class="trust-badges-footer">
+                        <div class="badge">🔐 SSL Secured</div>
+                        <div class="badge">🇦🇺 Australian Owned</div>
+                        <div class="badge">✅ PCI Compliant</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-disclaimer">
+                    <p><strong>Important:</strong> KoalaVault is a legal Australian competition platform. Entry is voluntary and open to Australian residents aged 18+. No purchase necessary for free entry option available. Full terms apply.</p>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2025 KoalaVault Pty Ltd. All rights reserved. Australian Business Number: 12 345 678 901</p>
+                    <p class="gambling-notice">🔞 <strong>18+ Only</strong> | Play Responsibly | <a href="#help">Gambling Help: 1800 858 858</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        // Generate animated stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 50;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Mobile menu toggle
+        function setupMobileMenu() {
+            const toggle = document.getElementById('mobile-menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            if (!toggle || !mobileNav) return;
+            
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileNav.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking on a link
+            const mobileLinks = mobileNav.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    
+                    // Close the menu first
+                    mobileNav.classList.remove('active');
+                    
+                    // For external links (http/https), allow normal navigation
+                    if (href && href.startsWith('http')) {
+                        // Don't prevent default for external links
+                        window.location.href = href;
+                        return;
+                    }
+                    
+                    // For internal links starting with #, let smooth scrolling handle it
+                    if (href && href.startsWith('#')) {
+                        // Let the smooth scrolling code handle this
+                        return;
+                    }
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (mobileNav.classList.contains('active') && 
+                    !mobileNav.contains(e.target) && 
+                    !toggle.contains(e.target)) {
+                    mobileNav.classList.remove('active');
+                }
+            });
+        }
+
+        // Countdown timer
+        function updateCountdown() {
+            const days = document.getElementById('days');
+            const hours = document.getElementById('hours');
+            const minutes = document.getElementById('minutes');
+            const seconds = document.getElementById('seconds');
+
+            setInterval(() => {
+                let d = parseInt(days.textContent);
+                let h = parseInt(hours.textContent);
+                let m = parseInt(minutes.textContent);
+                let s = parseInt(seconds.textContent);
+
+                s--;
+                if (s < 0) {
+                    s = 59;
+                    m--;
+                    if (m < 0) {
+                        m = 59;
+                        h--;
+                        if (h < 0) {
+                            h = 23;
+                            d--;
+                            if (d < 0) {
+                                d = 7; // Reset to 7 days
+                            }
+                        }
+                    }
+                }
+
+                days.textContent = d;
+                hours.textContent = h;
+                minutes.textContent = m;
+                seconds.textContent = s;
+            }, 1000);
+        }
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const faqItem = button.closest('.faq-item');
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all other FAQ items and remove active class
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.style.display = 'none';
+                });
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Package selection function
+        function selectPackage(packageType) {
+            console.log(`Selected package: ${packageType}`);
+            
+            // Remove previous selections
+            document.querySelectorAll('.package-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selected class to chosen package
+            const selectedButton = document.querySelector(`[onclick*="${packageType}"]`);
+            if (selectedButton) {
+                const selectedCard = selectedButton.closest('.package-card');
+                if (selectedCard) {
+                    selectedCard.classList.add('selected');
+                }
+            }
+            
+            // Optional: Smooth scroll to next section or show confirmation
+            // document.querySelector('.trust-section').scrollIntoView({ 
+            //     behavior: 'smooth' 
+            // });
+        }
+
+        // Initialize package interactions
+        function initializePackages() {
+            // Add click handlers to package cards
+            document.querySelectorAll('.package-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Only trigger if clicking on the card, not the button
+                    if (!e.target.classList.contains('package-button')) {
+                        const button = this.querySelector('.package-button');
+                        if (button) {
+                            button.click();
+                        }
+                    }
+                });
+            });
+
+            // Add hover effects for better UX
+            document.querySelectorAll('.package-button').forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        }
+
+        // Debug function to check for mobile CTA
+        function debugMobileCTA() {
+            const mobileCTA = document.querySelector('.mobile-cta');
+            if (mobileCTA) {
+                console.log('WARNING: Mobile CTA still exists!', mobileCTA);
+                mobileCTA.remove(); // Force remove if found
+            } else {
+                console.log('Mobile CTA successfully removed');
+            }
+        }
+
+        // Initialize
+        createStars();
+        setupMobileMenu();
+        updateCountdown();
+        initializePackages();
+        debugMobileCTA();
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.step, .bundle-card, .winner-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
